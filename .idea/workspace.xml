@@ -27,6 +27,9 @@
     <expand />
     <select />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 5.6">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
@@ -74,6 +77,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1aAvKtViaIPtDg60UFVa7atSeEq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -89,7 +93,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -164,7 +168,7 @@
       <workItem from="1586971947300" duration="1869000" />
       <workItem from="1586973850004" duration="46196000" />
       <workItem from="1587210288660" duration="22908000" />
-      <workItem from="1587305665201" duration="71136000" />
+      <workItem from="1587305665201" duration="72099000" />
     </task>
     <servers />
   </component>
@@ -172,6 +176,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="275" y="22" key="#Notifications" timestamp="1587478671312">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1587478671312" />
     <state x="454" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587321265740">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -196,10 +204,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="407" y="242" key="ComposerCompositePathDialog/0.0.1366.728@0.0.1366.728" timestamp="1586981825266" />
-    <state x="462" y="105" key="FileChooserDialogImpl" timestamp="1587380386726">
+    <state x="462" y="105" key="FileChooserDialogImpl" timestamp="1587478622206">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="462" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587380386726" />
+    <state x="462" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587478622206" />
     <state width="1323" height="249" key="GridCell.Tab.0.bottom" timestamp="1587416071035">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -228,10 +236,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1586438155686" />
-    <state x="184" y="6" key="SettingsEditor" timestamp="1587305100092">
+    <state x="184" y="6" key="SettingsEditor" timestamp="1587478644860">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587305100092" />
+    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587478644860" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1587422542905">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
