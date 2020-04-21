@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Ajouter Session E-learning {% endblock %}
+{% block breadcrumb1 %} Ajouter Session E-learning {% endblock %}
+{% block breadcrumb2 %} Ajout {% endblock %}
+    {% block stylesheet %}
+        {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('assets/css/session/elearning-session.css') }}"/>
+    {% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 swMain">
+            <div class="row">
+                <div class="col-md-12">
+                    {{ form_start(form, {'method': 'post', 'attr' : {'id' : 'formSessionElearning'}}) }}
+                    <fieldset>
+                        <legend>
+                            Ajouter Session E-learning
+                        </legend>
+
+                        <div class="form-group">
+                            <label class="control-label">
+                                Nom <span class="symbol required"></span>
+                            </label>
+                            {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'required' : 'true', 'placeholder' : 'Nom du Session' }}) }}
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">
+                                Level <span class="symbol required"></span>
+                            </label>
+                            {{ form_widget(form.level,{'attr': {'class': 'js-example-basic-single js-states form-control'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">
+                                Formation <span class="symbol required"></span>
+                            </label>
+                            {{ form_widget(form.formation,{'attr': {'class': 'js-example-basic-single js-states form-control', '' : ''}}) }}
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Configure Médias</legend>
+                        <div class="form-group">
+                            <div class="media"
+                                 data-prototype="{{ form_widget(form.elearningSessionMedias.vars.prototype)|e('html_attr') }}">
+                                {% for medias  in form.elearningSessionMedias %}
+                                    <div class="col-md-2">
+                                        <div class=" form-group">
+
+                                            {{ form_label(m.ordre, 'Ordre') }}
+
+                                            <div class="form-control">
+                                                {{ form_widget(m.ordre,{'attr': {'class': 'form-control', 'value' : 0}}) }}
+                                            </div>
+                                        </div>
+                                        <div class=" form-group">
+                                            {{ form_label(m.medias, 'Médias') }}
+
+                                            <div class="form-control">
+                                                {{ form_widget(m.medias,{'attr': {'class': 'js-example-basic-single js-states form-control', '' : ''}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary pull-right">
+                                Ajouter <i class="fa fa-arrow-circle-right"></i>
+                            </button>
+                        </div>
+
+                    </fieldset>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/session/elearning-session.js') }}"></script>
+{% endblock %}

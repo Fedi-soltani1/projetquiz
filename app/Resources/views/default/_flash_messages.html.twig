@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-12">
+        {% if app.session.flashBag.has('success') %}
+            <div id="toast-container-success" title="Success" description="{% for msg in app.session.flashBag.get('success') %}
+                    {{ msg|trans }}
+                {% endfor %}"></div>
+        {% endif %}
+        {% if app.session.flashBag.has('error') %}
+            <div id="toast-container-error" title="Error" description="{% for msg in app.session.flashBag.get('error') %}
+                    {{ msg|trans }}
+                {% endfor %}"></div>
+        {% endif %}
+    </div>
+</div>

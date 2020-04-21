@@ -1,0 +1,128 @@
+fedi_homepage:
+    path:     /
+    defaults: { _controller: FediBundle:Default:index }
+
+fedi_Questionpage:
+    path:     /Question
+    defaults: { _controller: FediBundle:Question:index }
+
+fedi_AjouterQuestion:
+    path:     /ajouterques
+    defaults: { _controller: FediBundle:Question:newQuestion }
+
+fedi_EditerQuestion:
+    path:     Question/{id}/EditerQuestion
+    defaults: { _controller: FediBundle:Question:edit }
+
+
+
+fedi_StatusQuestion:
+    path:     Question/{id}/statusQuestion
+    defaults: { _controller: FediBundle:Question:statusQuestion }
+
+fedi_DeleteQuestion:
+    path:     DeleteQuestion/{id}
+    defaults: { _controller: FediBundle:Question:delete }
+
+fedi_Formationpage:
+    path:     /Formationl
+    defaults: { _controller: FediBundle:Formation:index }
+
+
+fedi_AjouterFormation:
+    path:     /AjouterFormation
+    defaults: { _controller: FediBundle:Formation:newFormation }
+
+fedi_EditerFormation:
+    path:     Formation/{id}/EditerFormation
+    defaults: { _controller: FediBundle:Formation:edit }
+
+
+fedi_StatusFormation:
+    path:      /{id}/statusFormation
+    defaults: { _controller: FediBundle:Formation:status }
+
+
+fedi_DeleteFormation:
+    path:      Formation/DeleteFormation/{id}
+    defaults: { _controller: FediBundle:Formation:delete }
+
+fedi_AjouterMedia:
+    path:     /AjouterMedia
+    defaults: { _controller: FediBundle:Medias:newMedia }
+
+
+fedi_MediaQuiz:
+    path:     /MediaQuiz
+    defaults: { _controller: FediBundle:Medias:listMediasQuiz }
+
+fedi_MediaElearning:
+    path:     /MediaEle
+    defaults: { _controller: FediBundle:Medias:listMediasEl }
+
+fedi_DeleteMedia:
+    path:     /DeleteMedia/{id}
+    defaults: { _controller: FediBundle:Medias:delete }
+
+
+fedi_EditMedia:
+    path:     /EditMedia/{id}
+    defaults: { _controller: FediBundle:Medias:edit }
+
+fedi_Levelpage:
+    path:     /Levelpage
+    defaults: { _controller: FediBundle:Level:index }
+
+fedi_ajoutlevel:
+    path:     /ajoutLevel
+    defaults: { _controller: FediBundle:Level:newLevel }
+
+fedi_editlevel:
+    path:     /editlevel/{id}
+    defaults: { _controller: FediBundle:Level:editLevel }
+
+fedi_newEle:
+    path:     /newElee
+    defaults: { _controller: FediBundle:ElearningSession:newSession }
+
+list_Ele:
+    path:     /listElearning
+    defaults: { _controller: FediBundle:ElearningSession:index }
+
+modifier_Ele:
+    path:     /modifElee/{id}
+    defaults: { _controller: FediBundle:ElearningSession:edit }
+
+Delate_Ele:
+    path:     /delateEla/{id}
+    defaults: { _controller: FediBundle:ElearningSession:delete }
+
+Eleve_Ele:
+    path:     /list
+    defaults: { _controller: FediBundle:EleveElearningSession:listSessionsEl }
+
+filter_Ele:
+    path:     /filterlist
+    defaults: { _controller: FediBundle:EleveElearningSession:FiltreSessionsElearningByLevel }
+
+listeEleve_formation:
+    path:     /listForm
+    defaults: { _controller: FediBundle:EleveFormation:ListElevetElearningSession}
+
+afect_Form:
+    path:     /affeceFom
+    defaults: { _controller: FediBundle:EleveFormation:affecteEleveElearningSession}
+
+filter:
+    path:     /filterlist/{idlevel}
+    defaults: { _controller: FediBundle:EleveElearningSession:FiltreSessionsElearningByLevel}
+
+Quiz:
+    path:     /Quiz/{id}
+    defaults: { _controller: FediBundle:EleveElearningSession:quiz}
+
+
+
+
+
+

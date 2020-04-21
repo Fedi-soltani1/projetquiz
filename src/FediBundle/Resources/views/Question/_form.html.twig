@@ -1,0 +1,70 @@
+<div class="col-md-12">
+    {{ form_start(form, {'method': 'post', 'attr' : {'id' : 'formQuestion'}}) }}
+
+    <fieldset>
+        <legend>
+            Question
+        </legend>
+        <div class="form-group">
+            <label class="control-label">
+                Question <span class="symbol required"></span>
+            </label>
+            {{ form_widget(form.label, { 'attr': {'class': 'form-control', 'required' : true }}) }}
+        </div>
+        <div class="form-group">
+            <label class="control-label">
+                Type <span class="symbol required"></span>
+            </label>
+            {{ form_widget(form.type,{'attr': {'class': 'js-example-basic-single js-states form-control'}}) }}
+        </div>
+        <div class="form-group">
+            <label class="control-label">
+                Formations <span class="symbol required"></span>
+            </label>
+            {{ form_widget(form.formations, { 'attr': {'class': 'js-example-basic-multiple js-states form-control', 'required' : true}}) }}
+        </div>
+        <div class="form-group">
+            <label class="control-label">
+                Média
+            </label>
+            {{ form_widget(form.media,{'attr': {'class': 'js-example-basic-single js-states form-control'}}) }}
+        </div>
+
+    </fieldset>
+    <div class="row">
+        <div class="col-md-12">
+            <fieldset>
+                Configuration des Réponses
+                </legend>
+                <div class="row">
+                    <div id="answers"
+                         data-prototype="{{ form_widget(form.answers.vars.prototype)|e('html_attr') }}">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                {% for answer in form.answers %}
+                                    <div class="panel">
+                                        <div class="panel-body">
+                                            <div class="col-md-10">
+                                                {{ form_widget(answer.label,{'attr': {'class': 'form-control reponse', 'placeholder': 'Entrez la réponse'}}) }}
+                                            </div>
+                                            <div class="col-md-2">
+                                                {{ form_widget(answer.flag,{'attr': {'class': 'form-field-select-1 form-control select_width'}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary pull-right">
+            Sauvegarder <i class="fa fa-arrow-circle-right"></i>
+        </button>
+    </div>
+</div>
+{{ form_end(form) }}

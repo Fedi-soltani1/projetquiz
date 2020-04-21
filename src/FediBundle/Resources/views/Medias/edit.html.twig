@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Modifier Media {% endblock %}
+{% block breadcrumb1 %} Modifier Media {% endblock %}
+{% block breadcrumb2 %} Modifier {% endblock %}
+    {% block stylesheet %}
+        {{ parent() }}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/plugins/piexif.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/plugins/sortable.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/plugins/purify.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/fileinput.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/locales/fr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/locales/fr.js"></script>
+    {% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-3 swMain"></div>
+        <div class="col-md-6 swMain">
+            <div class="row">
+                <div class="col-md-12">
+                    <fieldset>
+                        <legend>
+                            Modifier Media
+                        </legend>
+                        {{ form_start(form, {'attr': {'id': '', 'novalidate': 'novalidate'}}) }}
+                        <div class="form-group">
+
+                            <div class="">
+                                {{ form_widget(form.choice, { 'attr': {'class': 'clip-radio radio-primary input-group', 'required' : 'true' }}) }}
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">
+                                Nom <span class="symbol required"></span>
+                            </label>
+                            {{ form_widget(form.name, { 'attr': {'class': 'form-control ', 'required' : 'true' , 'placeholder': 'Nom Media' }}) }}
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Selectionnez  un fichier
+                            </label>
+                            {{ form_widget(form.file, { 'attr': {'class': 'form-control file', 'required' : '', 'data-preview-file-type': 'text',  }}) }}
+                        </div>
+                        <code>** Seuls les formats pdf, png, jpg, jpeg, mp4, mov, avi sont acceptés **</code>
+                        <br/>
+                        <br/>
+                        <div class="form-group pull-right">
+                            <button class="btn btn-primary" type="submit" name="add">
+                                Modifier
+                            </button>
+                        </div>
+                        {{ form_end(form) }}
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        // initialize with defaults
+        $("#input-id").fileinput();
+
+        // with plugin options
+        $("#input-id").fileinput({'showUpload':false, 'previewFileType':'any'});
+
+    </script>
+
+{% endblock %}

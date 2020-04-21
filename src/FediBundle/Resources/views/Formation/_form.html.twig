@@ -1,0 +1,43 @@
+{{ form_start(form, {'method': 'post', 'attr' : {'id' : 'formFormation'}}) }}
+
+<div class="form-group">
+    <label class="control-label">
+        Nom <span class="symbol required"></span>
+    </label>
+    {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'required' : true }}) }}
+</div>
+<div class="form-group">
+    <label class="control-label">
+        Score <span class="symbol required"></span>
+    </label>
+    {{ form_widget(form.score, { 'attr': {'class': 'form-control', 'required' : true, 'value' : 00 , 'touchspin' : 'touchspin', 'data-min' : 0 , 'data-max': 100 , 'data-step': 0.1 ,  'data-decimals' :2 , 'data-boostat' : 5 , 'data-maxboostedstep' : 10  }}) }}
+
+
+
+</div>
+<div class="form-group">
+    <label class="control-label">
+        Durée <span class="symbol required"></span>
+    </label>
+    {{ form_widget(form.timer, { 'attr': {'class': 'form-control', 'required' : 'true', 'value' : 00 , 'touchspin' : 'touchspin', 'data-min' : 0 , 'data-max': 100 , 'data-step': 0.1 ,  'data-decimals' :2 , 'data-boostat' : 5 , 'data-maxboostedstep' : 10  }}) }}
+
+</div>
+<div class="form-group">
+    <label class="control-label">
+        Level <span class="symbol required"></span>
+    </label>
+<div class="">
+    {{ form_widget(form.level,{'attr': {'class': 'js-example-basic-single js-states form-control'}}) }}
+</div>
+</div>
+
+<div class="">
+</div>
+</div>
+<div class="form-actions">
+    <button type="submit" class="btn btn-primary pull-right">
+        Ajouter <i class="fa fa-arrow-circle-right"></i>
+    </button>
+</div>
+
+{{ form_end(form) }}

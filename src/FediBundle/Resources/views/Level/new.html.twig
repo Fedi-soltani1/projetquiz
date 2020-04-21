@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Level Formation {% endblock %}
+{% block breadcrumb1 %} Level Formation {% endblock %}
+{% block breadcrumb2 %} Ajout {% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-3 swMain"></div>
+        <div class="col-md-6 swMain">
+            <div class="row">
+                <div  class="col-md-12">
+                    <fieldset>
+                        <legend>
+                            Ajouter Level
+                        </legend>
+                        {{ include('@Fedi/Level/_form.html.twig') }}
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

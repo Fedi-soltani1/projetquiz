@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}  Sessions E-learning {% endblock %}
+{% block breadcrumb1 %}  Sessions E-learning {% endblock %}
+{% block breadcrumb2 %} Liste {% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12 space20">
+                    <a class="btn btn-primary pull-left" href="{{ path('fedi_newEle') }}">
+                        Ajouter Session E-learning <i class="fa fa-plus"></i></a>
+                </div>
+            </div>
+            <table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
+                <thead>
+                <tr>
+                    <th class="hidden-xs left" width="45%"><strong>Session</strong></th>
+                    <th class="hidden-xs center" width="45%"><strong>Nom formation</strong></th>
+                    <th class="hidden-xs center" width="10%"><strong>Action</strong></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for elearningSession in elearningSession   %}
+                    <tr>
+                        <td class="hidden-xs left">{{ elearningSession.name }}</td>
+                        <td class="hidden-xs center"> {{ elearningSession.formation.name }}</td>
+                        <td class="hidden-xs center">
+                            <a class="btn btn-success btn-xs" title="Modifier"
+                               href="{{ path('modifier_Ele', {'id': elearningSession.id}) }}">
+                                <span class="fa fa-edit" style="color:white"></span></a>
+                            <a href="{{ path('Delate_Ele', {'id': elearningSession.id}) }}"
+                               class="btn btn-danger btn-xs user-remove" title="Supprimer" data-toggle="confirmation"
+                               class="delete-row">
+                                <span class="fa fa-trash-o" style="color:white"></span></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

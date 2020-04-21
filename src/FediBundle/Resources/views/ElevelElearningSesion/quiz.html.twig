@@ -1,0 +1,273 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Quiz  Formation E-learning {% endblock %}
+{% block breadcrumb1 %} Quiz Formation E-learning {% endblock %}
+{% block breadcrumb2 %} Quiz {% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/candidat-quiz/candidat-quiz-elearning-session.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/candidat-quiz/detail-elearning-session.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timecircles/1.5.3/TimeCircles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <!--Commencez la quiz diapo 1-->
+            <div class="diapo1">
+                <div class="container container-diapo1">
+                    <div class="row">
+                        <div class="col-md-12 center">
+                            <div class="" style="margin-top: 15px;">
+                                <h2 class="h2-nameSession">Session
+                                    <spam class="nameSession" data-id="{{ sessionCurrent }}">
+                                        : {{ sessionCurrent }}</spam>
+                                </h2>
+                                <h2 class="h2-infoSession">Information du formation</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="" style="margin-top: 15px;">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <table class="tablediapo1" width="100%" align="center" style="">
+                                <tr>
+                                    <td width="20%"><h4><i class="fa fa-briefcase colortmp"></i> Formation :</h4></td>
+                                    <td ><h4 class=""> infoFormation  </h4></td>
+                                </tr>
+                                <tr>
+                                    <td><h4> <i class="fa fa-clock-o colortmp"></i> Durée :</h4></td>
+                                    <td class=""><h4 class="">{{ infoFormation.timer }} minutes</h4></td>
+                                </tr>
+                                <tr>
+                                    <td><h4><i class="fa fa-question-circle colortmp"></i> Questions :</h4></td>
+                                    <td  class=""><h4 class=" CountQuestion">{{ nbrQuestion }}</h4>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 25px">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="center">
+                            <div class="form-group">
+                                <button id="btnCommenceQuiz" type="button" onclick="lanceQuiz()"
+                                        class="btn btn-wide btn-lg  btn-o btn-danger margin-top-10">
+                                    Jouer <i class="fa fa-hand-o-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+            <!--end diapo 1-->
+            <!-- passer le quiz -->
+            <div class="diapo2" style="display:none ; ">
+                <div class="row">
+                    <div class="container">
+                        <div id="rootwizard" style="padding: 10px;">
+                            <div class="hidden">
+                                <div class="navbar-inner">
+                                    <div class="container ">
+                                        <ul class="">
+                                            {% for key, listQues in listQuestions %}
+                                                <li><a href="#tab{{ listQues.id }}"
+                                                       data-toggle="tab">{{ listQues.label }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div id="countdown"></div>
+                                <div id="timeQuiz" data-time="{{ infoFormation.timer }}">
+                                    <i class="far fa-clock fa-3x"></i>
+                                    <span class="time colortmp">{{ infoFormation.timer }}</span></div>
+                                {% for key, listQues in listQuestions %}
+                                    <div class="tab-pane" id="tab{{ listQues.id }}" data-index="{{ loop.index }}">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="quest1">
+                                                    <div class="" style="margin-top: -18px;"><span class="span-question">Question  <b class="questionCurrent{{ loop.index }}">{{ loop.index }}</b> / <b> {{ nbrQuestion }}</b></span>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="mediaQuiz">
+                                                        {% if listQues.media is not empty %}
+                                                            {% if listQues.media.type == 'TYPE_FILE' %}
+                                                                <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                                                    <iframe class="embed-responsive-item img-responsive center" src="{{ asset('uploads/medias/files/'~listQues.media.file) }}"></iframe>
+                                                                </div>
+                                                            {% elseif listQues.media.type == 'TYPE_VIDEO' %}
+                                                                <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                                                    <iframe class="embed-responsive-item img-responsive condidatVedioMedias"
+                                                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                                            frameborder="0"
+                                                                            src="{{ asset('uploads/medias/videos/'~listQues.media.file) }}"
+                                                                            allowfullscreen>
+                                                                    </iframe>
+                                                                </div>
+                                                            {% elseif listQues.media.type == 'TYPE_PHOTO' %}
+                                                                <div class="typeImageMedias">
+                                                                    <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                                                        <img class="img-responsive embed-responsive-item img-responsive photoMediaQuiz "
+                                                                             src="{{ asset('uploads/medias/images/'~listQues.media.file) }}"
+                                                                             alt="image"
+                                                                             title="{{ listQues.media.name }} "
+                                                                             data-toggle="modal"
+                                                                             data-target="#modal{{ listQues.media.id }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal fade center"
+                                                                     id="modal{{ listQues.media.id }}" tabindex="-1"
+                                                                     role="dialog"
+                                                                     aria-labelledby="myModalLabel"
+                                                                     aria-hidden="true">
+                                                                    <div class="modal-dialog modal-lg" role="document">
+                                                                        <!--Content-->
+                                                                        <div class="modal-content">
+                                                                            <!--Body-->
+                                                                            <div class="modal-body mb-0 p-0">
+                                                                                <div class="embed-responsive embed-responsive-16by9 photoMediaQuiz2 z-depth-1-half">
+                                                                                    <img class="embed-responsive-item"
+                                                                                         src="{{ asset('uploads/medias/images/'~ listQues.media.file) }}"/>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--Footer-->
+                                                                            <div class="modal-footer ">
+                                                                                <h6 class="pull-left">{{ listQues.media.name }}</h6>
+                                                                                <button type="button"
+                                                                                        class="btn btn-danger btn-rounded btn-md ml-4"
+                                                                                        data-dismiss="modal">
+                                                                                    Fermer
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--/.Content-->
+                                                                    </div>
+                                                                </div>
+                                                                <hr/>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    </div>
+                                                    <h1 class="NomQuest">
+                                                        <i class="ti-check-box colortmp"></i>
+                                                        {{ listQues.label }}
+                                                    </h1>
+                                                    <input type="hidden" id="countAnswerCorrect{{ listQues.id }}"
+                                                           value="{{ answersCorrect[key] }}"/>
+                                                    <div class="response">
+                                                        <input id="typeQuestion{{ loop.index }}"
+                                                               class="typeQuestion hidden"
+                                                               data-id="{{ listQues.id }}"
+                                                               type="text" value="{{ listQues.type }}">
+                                                        {% for key , reponses in answers %}
+                                                            {% for key, value in reponses %}
+                                                                {% if  listQues.id  == value.question.id %}
+                                                                    <div class="checkbox clip-check check-danger check-md choice{{ listQues.id }} "
+                                                                         id="divCheckvalid{{ value.id }}">
+                                                                        <input type="checkbox"
+                                                                               name="answer{{ listQues.id }}"
+                                                                               class="checkrep{{ listQues.id }}  answer{{ listQues.id }}"
+                                                                               data-id="{{ value.id }}"
+                                                                               data-value="{{ value.id }}"
+                                                                               id="checkbox{{ value.id }}"
+                                                                               value={{ value.flag }}>
+                                                                        <label for="checkbox{{ value.id }}"
+                                                                               style="margin-right: -10px;"
+                                                                               id="labelReponse{{ value.id }}">
+                                                                            <span class="newCheck "
+                                                                                  id="checkVerif{{ value.id }}"></span>
+                                                                        </label>
+                                                                        <span style="line-height: 1px; text-align: justify"
+                                                                              class="ques labelReponse{{ value.id }} "
+                                                                              id="ques{{ listQues.id }}">{{ value.label }}</span>
+                                                                    </div>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button id="btnValide{{ listQues.id }}"
+                                                type="button"
+                                                onclick="stopTime({{ listQues.id }})"
+                                                class="btn btn-sm pull-right btn-danger btnValide stoptime">
+                                            Valider <i class="fa fa-check"></i>
+                                        </button>
+                                    </div>
+                                {% endfor %}
+                                <ul class="pager wizard">
+                                    <li class="next">
+                                        <button class="btnNextQues btn btn-sm pull-right" type="button" onclick="nextQuiz()" href="javascript:;">Suivant <i class="fa fa-angle-double-right"></i></button>
+                                    </li>
+                                    <li>
+                                        <button id="btnSaveQuiz" type="button" onclick="CalculScoreQuiz()" class="btn btn-sm pull-right btn-danger">Score <i class="fa fa-hand-o-right"></i>
+                                        </button>
+                                    </li>
+                                    <li>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="bar" class="progress barProgressQuiz">
+                <div class="progress progress-striped active progress-sm" style="height: 17px">
+                    <div id="barQuiz" class="progress-bar progress-bar-danger" role="progressbar"
+                         aria-valuenow="0"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                        <span id="barprogress"></span></div>
+                </div>
+            </div>
+            <!--end quizz-->
+            <!--score quiz-->
+            <div class="diapo3">
+                <div class="container containerdiapo3">
+                    <div class="row">
+                        <div class="col-md-12 center">
+                            <div class="" style="margin-top: 15px;">
+                                <h2 class="h2-text-diapo3 center">
+                                    <div class="conclusion"></div>
+                                    <div style="display: none" class="nomC">{{ app.user.lastName }}  {{ app.user.firstName }}</div>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 25px">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="center">
+                            <h2 class="mar-top textReussi contenu "></h2>
+                            <input type="hidden" class="scoreFormation" value="{{ infoFormation.score }}">
+                            <input type="hidden" class="scoreFormationUser" value="">
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+            <!--end score-->
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap-wizard/1.2/jquery.bootstrap.wizard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap-wizard/1.2/jquery.bootstrap.wizard.min.js"></script>
+    <script src="https://www.jqueryscript.net/demo/Simple-jQuery-Html5-Based-360-Degree-Countdown-Timer-countdown360/src/jquery.countdown360.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timecircles/1.5.3/TimeCircles.js"></script>
+    <script src="{{ asset('assets/candidat-quiz/candidat-quiz-elearning-session.js') }}"></script>
+{% endblock %}

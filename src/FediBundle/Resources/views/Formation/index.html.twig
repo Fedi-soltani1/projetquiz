@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Formation  {% endblock %}
+{% block breadcrumb1 %} Formation  {% endblock %}
+{% block breadcrumb2 %} Liste {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12 space20">
+                    <a class="btn btn-primary pull-left" href="{{path('fedi_AjouterFormation')}}">
+                        Ajouter Formation <i class="fa fa-plus"></i></a>
+                </div>
+            </div>
+
+            <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+                <thead>
+                <tr>
+                    <th class="hidden-xs center" width="20%"><strong>Formation</strong></th>
+                    <th class="hidden-xs center" width="20%"><strong>Score minimum de réussite</strong></th>
+                    <th class="hidden-xs center" width="10%"><strong>Durée</strong></th>
+                    <th class="hidden-xs center" width="5%"><strong>Status</strong></th>
+                    <th class="hidden-xs center" width="15%"><strong>Level</strong></th>
+                    <th class="hidden-xs center" width="10%"><strong>Actions</strong></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for formation in formations %}
+                    <tr>
+                        <td class="hidden-xs center">{{ formation.name }} </td>
+                        <td class="hidden-xs center">{{ formation.score }} <b>%</b></td>
+                        <td class="hidden-xs center">{{ formation.timer }} <b>s</b></td>
+
+                        <td class="hidden-xs center">
+                            <a href="{{ path('fedi_StatusFormation', {'id': formation.id}) }}"
+                               class="label {% if formation.enabled == 1 %}label-success{% else %}label-danger{% endif %}">
+                                {% if formation.enabled == 1 %} Enabled {% else %} Disabled {% endif %}
+                            </a>
+                        </td>
+                        <td class="hidden-xs center">{{ formation.level.name }} </td>
+                        <td class="hidden-xs center">
+                            <a class="btn btn-success btn-xs" title="edit" href="{{ path('fedi_EditerFormation',{'id': formation.id}) }}" >
+                                <span class="fa fa-edit" style="color:white"></span></a>
+                            <a href="{{path('fedi_DeleteFormation',{'id': formation.id})}}" class="btn btn-danger btn-xs user-remove" title="supprimer" data-toggle="confirmation" class="delete-row">
+                                <span class="fa fa-trash-o"  style="color:white"></span></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

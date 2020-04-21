@@ -1,0 +1,86 @@
+
+.btnPrev, .btnNext, .btnFinsh {
+    background-color: #E10031 !important;
+    color: #fff !important;
+    border: 1px solid #E10031;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 14px;
+    margin-top: -15px;
+
+}
+.pdf-canvas{
+    margin-top: 10px;
+}
+a.btnFinsh.btn.btn-sm.pull-right {
+    border: 1px solid #E10031;
+    margin: 10px;
+    margin-top: -15px;
+    border-radius: 5px;
+
+}
+
+.previous.disabled {
+    display: none;
+}
+
+.barProgressMedias {
+    margin-top: 50px;
+    height: 12px !important;
+}
+
+.niv1Medias {
+    min-height: 400px;
+    border: 1px solid #E10031;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.condidatImageMedias {
+    cursor: pointer;
+    display: initial !important;
+    min-height: 540px;
+    padding: 15px 15px 15px 15px;
+    object-fit: cover;
+    min-width: 100%;
+}
+
+.condidatVedioMedias {
+    display: initial !important;
+    padding: 15px 15px 15px 15px;
+    object-fit: cover;
+}
+
+.condidatFileMedias {
+    cursor: pointer;
+    display: initial !important;
+    padding: 15px 15px 15px 15px;
+    object-fit: cover;
+}
+.btnNextPrev{
+    background-color: #E10031 !important;
+    color: #fff !important;
+    border: 1px solid #E10031;
+    border-radius: 5px;
+    margin: 3px;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: -8px;
+}
+.styleBtnNextPrev{
+    height: 50px;
+    margin-top: 15px;
+
+}
+.btnNextPrevDoc {
+    background-color: #E10031 !important;
+    color: #fff !important;
+    border: 1px solid #E10031;
+    border-radius: 5px;
+    margin: 3px;
+    font-size: 14px;
+
+}
+
+

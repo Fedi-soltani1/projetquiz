@@ -1,0 +1,66 @@
+
+.pdf-container
+{
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	top: 20px;
+	bottom: 20px;
+
+	background-color: #aaaaaa;
+	border: solid 1px #111111;
+	overflow: hidden;
+}
+
+.pdf-toolbar
+{
+	/*background-color: #cccccc;*/
+	position: relative;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height: 50px;
+}
+
+.pdf-container .pdf-canvas {
+	position: absolute;
+	margin-top: 40px;
+	top: 0;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	overflow: auto;
+}
+.pdf-container canvas {
+	position: relative;
+	display: inline-block;
+}
+
+
+
+.pdf-container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+
+	background-color: #aaaaaa;
+	border: solid 1px #111111;
+	overflow: hidden;
+
+}
+
+.styleBtnNextPrev{
+	margin-top: 15px;
+	margin-bottom: -30px;
+
+}
+.btnNextPrevDoc {
+	background-color: #E10031 !important;
+	color: #fff !important;
+	border: 1px solid #E10031;
+	border-radius: 5px;
+	margin: 3px;
+	font-size: 14px;
+
+}

@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Medias E-learning {% endblock %}
+{% block breadcrumb1 %} Medias{% endblock %}
+{% block breadcrumb2 %} Liste Médias E-learning {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
+                <thead>
+                <tr>
+                    <th class="hidden-xs center" width="20%"><strong>Médias </strong></th>
+                    <th class="hidden-xs center" width="70%"><strong>Nom</strong></th>
+                    <th class="hidden-xs center" width="10%"><strong>Actions</strong></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for medias in medias %}
+                    <tr>
+                        <td class="hidden-xs center ">
+                            {% if medias.type == 'TYPE_VIDEO' %}
+                                    <img  id="{{ medias.id }}" class="img-fluid z-depth-1 gallerie-picture mediaModel" style="width: 40px;"
+                                          data-type="{{ medias.type }}"
+                                          data-name="{{ medias.name }}"
+                                          data-src="{{ asset('upload/medias/videos/'~medias.file) }}"
+                                         src="{{ asset('upload/medias/videos/video.png') }}" alt="video"
+                                         title="{{ medias.name }}">
+                            {% elseif medias.type == 'TYPE_PHOTO' %}
+                                    <img  id="{{ medias.id }}"  class="img-fluid z-depth-1 gallerie-picture mediaModel" style="width: 40px;"
+                                          data-type="{{ medias.type }}"
+                                          data-name="{{ medias.name }}"
+                                          data-src="{{ asset('uploads/medias/images/'~medias.file) }}"
+                                         src="{{ asset('upload/medias/images/image.png') }}"
+                                         alt="image" title="{{ medias.name }}">
+                            {% else %}
+                                    <img id="{{ medias.id }}" class="img-fluid z-depth-1 gallerie-picture mediaModel" style="width: 40px;"
+                                         data-type="{{ medias.type }}"
+                                         data-name="{{ medias.name }}"
+                                         data-src="{{ asset('uploads/medias/files/'~medias.file) }}"
+                                         src="{{ asset('upload/medias/files/doc.png') }}" alt="image"
+                                         title="{{ medias.name }}">
+                            {% endif %}
+                        </td>
+                        <td class="hidden-xs center media">{{ medias.name }}</td>
+                        <td class="hidden-xs center">
+
+                                <a class="btn btn-success btn-xs" title="Modifier"
+                                   href="{{ path('fedi_EditMedia', {'id' : medias.id}) }}">
+                                    <span class="fa fa-edit" style="color:white"></span></a>
+                                <a href="{{ path('fedi_DeleteMedia', {'id' : medias.id}) }}"
+                                   class="btn btn-danger btn-xs user-remove" title="supprimer"
+                                   data-toggle="confirmation" class="delete-row">
+                                    <span class="fa fa-trash-o" style="color:white"></span></a>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div id="divModal"></div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/medias/list-medias.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html class="ie8" lang="en"><![endif]-->
+<!--[if IE 9]>
+<html class="ie9" lang="en"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- start: HEAD -->
+<head>
+    <title>Total Task</title>
+    <!-- start: META -->
+    <!--[if IE]>
+
+    <meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1"/><![endif]-->
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!-- end: META -->
+
+    <!-- start: GOOGLE FONTS -->
+    <link href="{{ asset('components/assets/css/fonts.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- end: GOOGLE FONTS -->
+
+    <!-- start: MAIN CSS -->
+    {% block stylesheet %}
+
+        <link rel="shortcut icon" href="{{ asset('components/assets/images/ico/favicon.png') }}">
+        <link rel="stylesheet" href="{{ asset('components/vendor/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('components/vendor/fontawesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('components/vendor/themify-icons/themify-icons.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('components/vendor/animate.css/animate.min.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('components/vendor/perfect-scrollbar/perfect-scrollbar.min.css') }}"
+              media="screen">
+        <link rel="stylesheet" href="{{ asset('components/vendor/switchery/switchery.min.css') }}" media="screen">
+        <link rel="stylesheet"
+              href="{{ asset('components/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css') }}"
+              media="screen">
+        <link rel="stylesheet" href="{{ asset('components/vendor/select2/select2.min.css') }}" media="screen">
+        <link rel="stylesheet"
+              href="{{ asset('components/vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css') }}"
+              media="screen">
+        <link rel="stylesheet" href="{{ asset('components/vendor/bootstrap-timepicker/bootstrap-timepicker.min.css') }}"
+              media="screen">
+        <link rel="stylesheet" href="{{ asset('components/assets/css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('components/assets/css/plugins.css') }}">
+        <link rel="stylesheet" href="{{ asset('components/assets/css/themes/theme-5.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('components/vendor/sweetalert/sweet-alert.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('components/vendor/sweetalert/ie9.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('components/vendor/toastr/toastr.min.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('components/assets/css/data-table/dataTables.bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('components/assets/css/data-table/buttons.bootstrap.min.css') }}">
+        <link rel="stylesheet " href="{{ asset('assets/css/custom/custom-styles.css') }}">
+
+    {% endblock %}
+
+</head>
+<body>
+<div id="app">
+    <!-- sidebar -->
+    <div class="sidebar app-aside" id="sidebar">
+
+        </div>
+    </div>
+    <!-- / sidebar -->
+    <div class="app-content">
+        <!-- start: TOP NAVBAR -->
+        <header class="navbar navbar-default navbar-static-top">
+            <!-- start: NAVBAR HEADER -->
+            <div class="navbar-header">
+                <a href="#" class="sidebar-mobile-toggler pull-left hidden-md hidden-lg"
+                   class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app"
+                   data-toggle-click-outside="#sidebar">
+                    <i class="ti-align-justify"></i>
+                </a>
+
+                {% if  is_granted('ROLE_ADMIN_COUNTRY')  %}
+
+                <a href="{{ path('admin_country_dashboard') }}" class="navbar-brand">
+                    <img src="{{ asset('components/assets/images/logo.png') }}" style=" width: 183px;" alt="Total"/>
+                </a>
+                {% elseif  is_granted('ROLE_ADMIN_WORLD') %}
+
+                    <a href="{{ path('admin_world_dashboard') }}" class="navbar-brand">
+                        <img src="{{ asset('components/assets/images/logo.png') }}" style=" width: 183px;" alt="Total"/>
+                    </a>
+                {% elseif  is_granted('ROLE_CANDIDAT') %}
+
+                <a href="{{ path('admin_candidat_dashboard') }}" class="navbar-brand">
+                    <img src="{{ asset('components/assets/images/logo.png') }}" style=" width: 183px;" alt="Total"/>
+                    {% elseif  is_granted('ROLE_MANAGER') %}
+                    <a href="{{ path('admin_manager_dashboard') }}" class="navbar-brand">
+                        <img src="{{ asset('components/assets/images/logo.png') }}" style=" width: 183px;" alt="Total"/>
+                </a>
+                {% endif %}
+
+                <a href="#" class="sidebar-toggler pull-right visible-md visible-lg"
+                   data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
+                    <i class="ti-align-justify"></i>
+                </a>
+                <a class="pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse"
+                   href=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="ti-view-grid"></i>
+                </a>
+                </a>
+            </div>
+            <!-- end: NAVBAR HEADER -->
+
+            <!-- start: NAVBAR COLLAPSE -->
+            <div class="navbar-collapse collapse">
+                <div class="pull-left">{#<h1 class="mainTitle" style="color: #E10031; font-size: 20px;">Total Tunisia Tool for Assessment of Staff Safety Knowledge</h1>#}</div>
+                <ul class="nav navbar-right">
+                    </li>
+                    <!-- start: USER OPTIONS DROPDOWN -->
+                    <li class="dropdown current-user">
+                        <a href class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="{{ asset('components/assets/images/media-user.png') }}" alt=" "
+                                 style="width: 40px;">
+                            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+
+                            <span class="username" style="color: #364150;">{{ app.user.firstName ~' '~ app.user.lastName }} <i  class="ti-angle-down"></i></span>
+                            {% endif %}
+
+                        </a>
+                        <ul class="dropdown-menu dropdown-dark">
+                            <li>
+                                <a href="{{ path('user_show_profile') }}">
+                                    Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('user_edit') }}">
+                                    Modification Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('user_change_password') }}">
+                                    Changer mot de passe
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('logout') }}">
+                                    Déconnexion
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- end: USER OPTIONS DROPDOWN -->
+
+
+                </ul>
+                <!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+                <div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+                    <div class="arrow-left"></div>
+                    <div class="arrow-right"></div>
+                </div>
+                <!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+            </div>
+
+            <!-- end: NAVBAR COLLAPSE -->
+        </header>
+        <!-- end: TOP NAVBAR -->
+
+        <div class="main-content">
+
+            <div class="wrap-content container" id="container">
+
+                <section id="page-title">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h1 class="mainTitle">{% block title %}  {% endblock %}</h1>
+                        </div>
+                        <ol class="breadcrumb" style="margin: 0px 0 0 !important;">
+                            <li>
+                                <span>{% block breadcrumb1 %} {% endblock %}</span>
+                            </li>
+                            <li class="active">
+                                <span>{% block breadcrumb2 %} {% endblock %}</span>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+
+
+                <div class="container-fluid container-fullw bg-white">
+
+                    {{ include('Default/_flash_messages.html.twig') }}
+
+                    {% block content %}
+                    {% endblock %}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- start: FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="pull-left">
+                &copy; <span class="current-year"></span><span class="text-bold text-uppercase"> TOTAL TASK</span>.
+                <span>All rights reserved</span>
+            </div>
+            <div class="pull-right">
+                <span class="go-top"><i class="ti-angle-up"></i></span>
+            </div>
+        </div>
+    </footer>
+    <!-- end: FOOTER -->
+
+
+    <!-- end: SETTINGS -->
+</div>
+{% block javascripts %}
+    <script src="{{ asset('components/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('components/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('components/vendor/modernizr/modernizr.js') }}"></script>
+    <script src="{{ asset('components/vendor/jquery-cookie/jquery.cookie.js') }}"></script>
+    <script src="{{ asset('components/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('components/vendor/toastr/toastr.js') }}"></script>
+    <!-- end: MAIN JAVASCRIPTS -->
+    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <script src="{{ asset('components/vendor/Chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('components/vendor/jquery.sparkline/jquery.sparkline.min.js') }}"></script>
+    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <!-- start: CLIP-TWO JAVASCRIPTS -->
+    <script src="{{ asset('components/vendor/bootstrap-fileinput/jasny-bootstrap.js') }}"></script>
+    <script src="{{ asset('components/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('components/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.fr.min.js') }}"></script>
+    <script src="{{ asset('components/vendor/bootstrap-fileinput/jasny-bootstrap.js') }}"></script>
+    <script src="{{ asset('components/vendor/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('components/vendor/bootstrap-timepicker/bootstrap-timepicker.js') }}"></script>
+    <script src="{{ asset('components/assets/js/main.js') }}"></script>
+    <!-- start: JavaScript Event Handlers for this page -->
+    <script src="{{ asset('components/assets/js/index.js') }}"></script>
+    <script src="{{ asset('components/assets/js/form-elements.js') }}"></script>
+    <script src="{{ asset('components/assets/js/table-data.js') }}"></script>
+    <script src="{{ asset('components/assets/js/bootstrap-confirmation.js') }} "></script>
+    <script src="{{ asset('components/assets/js/admin.js') }} "></script>
+
+    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <script src="{{ asset('components/vendor/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('components/vendor/ckeditor/adapters/jquery.js') }}"></script>
+    <script src="{{ asset('components/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
+    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <!-- start: JavaScript Event Handlers for this page -->
+    <script src="{{ asset('components/assets/js/form-validation.js') }}"></script>
+    <script src="{{ asset('components/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js') }}"></script>
+    <script src="{{ asset('components/assets/js/data-table/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('components/assets/js/data-table/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('components/assets/js/data-table/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('components/assets/js/data-table/buttons.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('components/assets/js/data-table/jszip.min.js') }}"></script>
+    <script src="{{ asset('components/assets/js/data-table/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('assets/js/validation-form/validate-form.js') }}"></script>
+
+    <script src="{{ asset('assets/js/js-route/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script src="{{ asset('assets/total-task/app/app.js') }} "></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+            FormValidator.init();
+            FormValidatorTotalTAsk.init();
+            FormElements.init();
+            TableData.init();
+            formSelector('candidat_interne_company','candidat_interne_direction','{{path('direction_list_company')}}');
+            formSelector('candidat_interne_direction','candidat_interne_service','{{path('service_list_direction')}}');
+        });
+    </script>
+
+{% endblock %}
+</body>
+</html>

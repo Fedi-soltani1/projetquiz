@@ -1,0 +1,117 @@
+
+input[type="checkbox"][id^="myCheckbox"] {
+    display: none;
+}
+
+label {
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+label:before {
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid grey;
+    position: absolute;
+    transition-duration: 0.4s;
+    transform: scale(0);
+}
+
+
+:checked + label {
+    -webkit-box-shadow: -4px 6px 10px -5px rgba(0, 0, 0, 1);
+    -moz-box-shadow: -4px 6px 10px -5px rgba(0, 0, 0, 1);
+    box-shadow: -4px 6px 10px -5px rgba(0, 0, 0, 1);
+    background-color: grey;
+    opacity: 0.2;
+}
+
+:checked + label:before {
+    content: "";
+    background-color: grey;
+    transform: scale(1);
+}
+
+:checked + label img {
+    transform: scale(0.9);
+    z-index: -1;
+}
+
+h6 > a {
+    color: black;
+}
+
+h6 {
+    color: black;
+}
+
+
+.delete-btn {
+    position: absolute;
+    bottom: -54px;
+    right: 0;
+}
+
+.btn-Add_Media,
+.btn-Add_Media:hover,
+.btn-Add_Media:focus {
+    margin-top: 28px;
+    border-color: #E10031;
+    background-color: #E10031;
+    color: #fff;
+    margin-left: 14px;
+
+}
+.gallerie-picture {
+
+    margin: 10px 10px;
+
+}
+
+.inputOrder {
+    width: 65px;
+}
+
+.nbrSessionElearning {
+    font-size: 21px;
+    padding: 0px 9px 6px 8px;
+    background-color: #2c3543;
+    line-height: 23px;
+}
+
+.nameSession {
+    font-size: 19px;
+}
+.sessions {
+    border: 1px solid #E10031;
+    background-color: whitesmoke !important;
+    transition: transform .2s;
+    -webkit-box-shadow: -1px 1px 0px 1px;
+    -moz-box-shadow: -1px 1px 0px 1px;
+    box-shadow: -1px 1px 0px 1px;
+
+}
+
+h3.lead.nameSession {
+    font-family: "Raleway", sans-serif !important;
+}
+
+h3.lead.nameSession.active:hover {
+    font-weight: bold;
+}
+
+
+.sessions:hover {
+    transform: scale(0.9);
+}
+.panel-body.panelElearningSession:hover,
+.panel-body.panelEvaluationSession:hover,
+.panel-body.panelPresentielleSession:hover {
+    border: 0.5px solid rgb(241, 241, 241);
+    -webkit-box-shadow: 0px 2px 5px 0px rgb(54, 65, 80);
+    -moz-box-shadow: 0px 2px 5px 0px rgb(54, 65, 80);
+    box-shadow: 0px 2px 5px 0px rgb(54, 65, 80);
+}

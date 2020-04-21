@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+{% block title %}  Formation E-learning {% endblock %}
+{% block breadcrumb1 %}  Formation E-learning {% endblock %}
+{% block breadcrumb2 %} Liste {% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/session/elearning-session.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css">
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="control-label">
+                        level
+                    </label>
+                    <div class="form-group">
+                        <select class="js-example-basic-single js-states form-control inputLevel l ">
+                            <option value="0" selected>Tous level</option>
+                            {% for lev in levels %}
+                                <option value="{{ lev.id }}">{{ lev.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 searchFormations" >
+                    <label class="control-label">
+                        Formations
+                    </label>
+                    <div class="form-group ">
+                        <select class="js-example-basic-single js-states form-control  listFormations Select inputFormation" >
+                            <option value="0" selected>Tous Formations</option>
+                            {% for f in allFormations %}
+                                <option value="{{ f.id }}">{{ f.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="row listSessionsElearning" style="min-height:318px;">
+                    {% for f in formationAfecte %}
+                        {%  if f.score is not null  %}
+                            <div class="col-md-6"  id="session_{{ f.elearningSession.id }}" disabled="disabled" data-score="{{ f.score }}" style="opacity: 0.5;">
+                                <div class="jumbotron jumbotron-fluid "  style="padding: 2px 2px 2px 2px; ">
+                                    <div class="container">
+                                        <h3  style="padding-top: 16px;" class="lead nameSession"  data-id="{{ f.elearningSession.id}}"><i class="iconS fa fa-chevron-circle-right" style="color: red;"></i> {{f.elearningSession.name }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="col-md-6"  id="session_{{ f.elearningSession.id }}"  data-score="{{ f.score }}">
+                                <a href="#" >
+                                    <div class="jumbotron jumbotron-fluid "  style="padding: 2px 2px 2px 2px; cursor: pointer;">
+                                        <div class="container">
+                                            <h3  style="padding-top: 16px;" class="lead nameSession active"  data-id="{{ f.elearningSession.id}}"><i class="iconS fa fa-chevron-circle-right" style="color: red;"></i> {{f.elearningSession.name }}</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/plugin/pagination.js') }}"></script>
+    <script src="{{ asset('assets/Elevel-search-session/candidat-search-elearning-session.js') }}"></script>
+{% endblock %}

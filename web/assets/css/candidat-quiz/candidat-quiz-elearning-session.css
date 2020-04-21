@@ -1,0 +1,205 @@
+
+.diapo2, .diapo3, .diapo1 {
+    background-color: #f8f8f8;
+    min-height: 500px;
+    border: 1px solid #2c3543;
+    border-radius: 10px;
+    /*background-image: url("");*/
+    background-repeat: no-repeat;
+}
+
+li.previous.disabled {
+    display: none;
+}
+
+hr {
+    border-bottom: 1px solid #E10031;
+    margin-top: 10px;
+    /*width: 50%;*/
+    margin-left: 0px;
+
+}
+
+.NomQuest {
+    padding-top: 10px;
+    font-size: 25px;
+}
+
+.container-diapo1 {
+    margin-top: 40px;
+}
+
+.h2-nameSession, .h2-infoSession, .h2-text-diapo3 {
+    font-weight: bold;
+}
+
+.nameInfoFormation, .timeInfoFormation, .CountQuestion {
+    margin-right: 0px;
+}
+
+.tab-content {
+    background-color: #f8f8f8;
+}
+
+#countdown, #timeQuiz {
+    margin-left: 66%;
+    position: fixed;
+}
+
+.time {
+    font-size: 50px;
+}
+
+.styleAnswerverif {
+    line-height: 61px;
+}
+
+.tablediapo1 {
+    margin-left: 146px;
+}
+
+.mar-top {
+    margin-top: 15px;
+}
+
+.span-question {
+    font-size: 30px;
+}
+
+.far.fa-clock.fa-3x {
+    font-size: 45px;
+}
+
+.p-text-diapo1 {
+    font-size: 15px
+}
+
+.response {
+    min-height: 143px;
+
+    margin-top: 57px;
+    margin-left: 25px;
+    line-height: 4;
+}
+
+.ques {
+    font-size: 17px;
+    font-family: "Raleway", sans-serif !important;
+    color: #5b5b60;
+}
+
+td {
+    height: 50px !important;
+}
+
+.containerdiapo3 {
+    margin-top: 40px;
+}
+
+.btnPrevQues, .btnNextQues {
+    background-color: #E10031 !important;
+    color: #fff !important;
+    border-radius: 30px;
+}
+
+button#btnCommenceQuiz:hover {
+    color: white !important;
+    background-color: #E10031 !important;
+}
+
+.btnPrevQues, .btnNextQues, #btnSaveQuiz {
+    background-color: #E10031 !important;
+    color: #fff !important;
+    border: 1px solid #E10031;
+    border-radius: 5px;
+    margin-right: 28px;
+    font-size: 14px;
+}
+
+.btnValide {
+    background-color: #E10031 !important;
+    color: #fff !important;
+    border: 1px solid #E10031;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 44px 3px;
+}
+
+.next.disabled {
+    display: none;
+}
+
+.timesss {
+    position: absolute;
+    width: 100%;
+}
+
+#btnSaveQuiz, .btnValide {
+    display: none;
+}
+
+.barProgressQuiz {
+    height: 19px !important;
+}
+
+#bar {
+    width: 100%;
+    margin-top: 16px;
+}
+
+.quesValid {
+    color: #42804b;
+}
+
+.quesError {
+    color: #E10031;
+}
+
+.time_circles {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.diapo3 {
+    display: none;
+}
+
+.quesValidAuto {
+    color: #42804b;
+}
+
+.response {
+    min-height: 143px;
+}
+
+.newCheck {
+    padding-right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.photoMediaQuiz {
+    cursor: pointer;
+    display: initial !important;
+    min-height: 540px;
+    padding: 15px 15px 15px 15px;
+    object-fit: cover;
+    min-width: 100%;
+}
+
+.photoMediaQuiz2 {
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.conclusion {
+    margin-top: 31px;
+    margin-bottom: 36px;
+}
+
+.textReussi {
+    min-height: 161px;
+    margin-top: -11px;
+    line-height: 2;
+}

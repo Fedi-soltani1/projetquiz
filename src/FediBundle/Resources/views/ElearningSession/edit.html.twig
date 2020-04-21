@@ -1,0 +1,163 @@
+{% extends 'base.html.twig' %}
+{% block title %} Modifier Session E-learning {% endblock %}
+{% block breadcrumb1 %} Modifier Session E-learning {% endblock %}
+{% block breadcrumb2 %} Modifier {% endblock %}
+    {% block stylesheet %}
+        {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('assets/css/session/elearning-session.css') }}"/>
+    {% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 swMain">
+            <div class="row">
+                <div class="col-md-12">
+                    {{ form_start(form, {'method': 'post', 'attr' : {'id' : ''}}) }}
+                    <fieldset>
+                        <legend>
+                            Modifier Session E-learning
+                        </legend>
+                        <div class="form-group">
+                            <label class="control-label">
+                                Nom <span class="symbol required"></span>
+                            </label>
+                            {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'required' : 'true', 'placeholder' : 'Nom du Formation' }}) }}
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">
+                                level <span class="symbol required"></span>
+                            </label>
+                            {{ form_widget(form.level,{'attr': {'class': 'js-example-basic-single js-states form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">
+                                Formation <span class="symbol required"></span>
+                            </label>
+                            {{ form_widget(form.formation,{'attr': {'class': 'js-example-basic-single js-states form-control', '' : ''}}) }}
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Configure Médias</legend>
+                        <div class="form-group">
+                            <div class="media"
+                                 data-prototype="{{ form_widget(form.elearningSessionMedias.vars.prototype)|e('html_attr') }}">
+                                {% for m in form.elearningSessionMedias %}
+                                    <div class="row media-item col-md-12">
+                                        <div class="col-md-10 row">
+                                            <div class="col-md-2">
+                                                <div class=" form-group">
+                                                    Ordre
+                                                    {{ form_widget(m.ordre,{'attr': {'class': 'form-control input-sm ' }}) }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class=" form-group">
+                                                    Médias
+                                                    {{ form_widget(m.medias,{'attr': {'class': 'js-example-basic-single js-states form-control', '' : ''}}) }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" >
+                                                {% if m.vars.data.medias.type == 'TYPE_PHOTO' %}
+                                                    <div class="modal fade" id="modal{{ m.vars.data.medias.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg" role="document">
+                                                            <!--Content-->
+                                                            <div class="modal-content">
+                                                                <!--Body-->
+                                                                <div class="modal-body mb-0 p-0">
+                                                                    <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                                                        <img class="embed-responsive-item" src="{{ asset('uploads/medias/images/'~ m.vars.data.medias.file) }}"/>
+                                                                    </div>
+                                                                </div>
+                                                                <!--Footer-->
+                                                                <div class="modal-footer ">
+                                                                    <h6 class="pull-left">{{ m.vars.data.medias.name}}</h6>
+                                                                    <button type="button" class="btn btn-danger btn-rounded btn-md ml-4" data-dismiss="modal">Fermer</button>
+                                                                </div>
+                                                            </div>
+                                                            <!--/.Content-->
+                                                        </div>
+                                                    </div>
+                                                    <!--Modal: Name-->
+                                                    <a>
+                                                        <img class="img-fluid z-depth-1 gallerie-picture "  style="width: 45px;"   src="{{ asset('uploads/medias/images/'~ m.vars.data.medias.file) }}" alt="image"  title="{{ m.vars.data.medias.name }}"
+                                                             data-toggle="modal" data-target="#modal{{ m.vars.data.medias.id}}">
+                                                    </a>
+                                                {% elseif m.vars.data.medias.type == 'TYPE_FILE' %}
+                                                    <div class="modal fade" id="modal{{ m.vars.data.medias.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg" role="document">
+                                                            <!--Content-->
+                                                            <div class="modal-content">
+                                                                <!--Body-->
+                                                                <div class="modal-body mb-0 p-0">
+                                                                    <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                                                        <iframe class="embed-responsive-item" src="{{ asset('uploads/medias/files/'~ m.vars.data.medias.file) }}"
+                                                                        ></iframe>
+                                                                    </div>
+                                                                </div>
+                                                                <!--Footer-->
+                                                                <div class="modal-footer ">
+                                                                    <h6 class="pull-left">{{ m.vars.data.medias.name}}</h6>
+                                                                    <button type="button" class="btn btn-danger btn-rounded btn-md ml-4" data-dismiss="modal">Fermer</button>
+                                                                </div>
+                                                            </div>
+                                                            <!--/.Content-->
+                                                        </div>
+                                                    </div>
+                                                    <!--Modal: Name-->
+                                                    <a>
+                                                        <img class="img-fluid z-depth-1 gallerie-picture "  style="width: 45px;"   src="{{ asset('upload/medias/files/doc.png') }}" alt="image"  title="{{ m.vars.data.medias.name }}"
+                                                             data-toggle="modal" data-target="#modal{{ m.vars.data.medias.id}}">
+                                                    </a>
+                                                {% else %}
+                                                    <div class="modal fade" id="modal{{ m.vars.data.medias.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg" role="document">
+                                                            <!--Content-->
+                                                            <div class="modal-content">
+                                                                <!--Body-->
+                                                                <div class="modal-body mb-0 p-0">
+                                                                    <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                                                        <iframe class="embed-responsive-item" src="{{ asset('uploads/medias/videos/'~ m.vars.data.medias.file) }}"
+                                                                                allowfullscreen></iframe>
+                                                                    </div>
+                                                                </div>
+                                                                <!--Footer-->
+                                                                <div class="modal-footer ">
+                                                                    <h6 class="pull-left">{{ m.vars.data.medias.name}}</h6>
+                                                                    <button type="button" class="btn btn-danger btn-rounded btn-md ml-4" data-dismiss="modal">Fermer</button>
+                                                                </div>
+                                                            </div>
+                                                            <!--/.Content-->
+                                                        </div>
+                                                    </div>
+                                                    <!--Modal: Name-->
+                                                    <a>
+                                                        <img class="img-fluid z-depth-1 gallerie-picture "  style="width: 45px;"  src="{{ asset('upload/medias/videos/video.png') }}" alt="video"  title="{{ m.vars.data.medias.name }}"
+                                                             data-toggle="modal" data-target="#modal{{ m.vars.data.medias.id}}">
+                                                    </a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-danger delete-btn-edit delete-btn"><i class="fa fa-trash"></i> </button>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary pull-right">
+                                Modifier <i class="fa fa-arrow-circle-right"></i>
+                            </button>
+                        </div>
+                    </fieldset>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div><!-- Grid row -->
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/session/elearning-session.js') }}"></script>
+{% endblock %}
+
+

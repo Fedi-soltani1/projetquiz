@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html class="ie8" lang="en"><![endif]-->
+<!--[if IE 9]>
+<html class="ie9" lang="en"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- start: HEAD -->
+<head>
+    <title>Schooli</title>
+    <!-- start: META -->
+    <!--[if IE]>
+
+    <meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1"/><![endif]-->
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!-- end: META -->
+
+    <!-- start: GOOGLE FONTS -->
+    <!-- end: GOOGLE FONTS -->
+
+    <!-- start: MAIN CSS -->
+    {% block stylesheet %}
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    {% endblock %}
+
+</head>
+<body>
+<div id="app">
+    <!-- sidebar -->
+    <div class="sidebar app-aside" id="sidebar">
+        <div class="sidebar-container perfect-scrollbar">
+
+        </div>
+    </div>
+    <!-- / sidebar -->
+    <div class="app-content">
+        <!-- start: TOP NAVBAR -->
+        <header class="navbar navbar-default navbar-static-top">
+            <!-- start: NAVBAR HEADER -->
+            <div class="navbar-header">
+                <a href="#" class="sidebar-mobile-toggler pull-left hidden-md hidden-lg"
+                   class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app"
+                   data-toggle-click-outside="#sidebar">
+                    <i class="ti-align-justify"></i>
+                </a>
+
+
+                <a href="#" class="navbar-brand">
+                    <img src="{{ asset('assets/components/assets/images/logo.png') }}" style=" width: 183px;" alt=""/>
+                </a>
+
+
+
+                    <a href="#" class="sidebar-toggler pull-right visible-md visible-lg"
+                       data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
+                        <i class="ti-align-justify"></i>
+                    </a>
+                    <a class="pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse"
+                       href=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="ti-view-grid"></i>
+                    </a>
+                </a>
+            </div>
+            <!-- end: NAVBAR HEADER -->
+
+            <!-- start: NAVBAR COLLAPSE -->
+            <div class="navbar-collapse collapse">
+                <div class="pull-left">{#<h1 class="mainTitle" style="color: #E10031; font-size: 20px;">Total Tunisia Tool for Assessment of Staff Safety Knowledge</h1>#}</div>
+                <ul class="nav navbar-right">
+                    </li>
+                    <!-- start: USER OPTIONS DROPDOWN -->
+                    <li class="dropdown current-user">
+                        <a href class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="{{ asset('components/assets/images/media-user.png') }}" alt=" "
+                                 style="width: 40px;">
+
+
+                        </a>
+                        <ul class="dropdown-menu dropdown-dark">
+                            <li>
+                                <a href="#">
+                                    Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Modification Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Changer mot de passe
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Déconnexion
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- end: USER OPTIONS DROPDOWN -->
+
+
+                </ul>
+                <!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+                <div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+                    <div class="arrow-left"></div>
+                    <div class="arrow-right"></div>
+                </div>
+                <!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+            </div>
+
+            <!-- end: NAVBAR COLLAPSE -->
+        </header>
+        <!-- end: TOP NAVBAR -->
+
+        <div class="main-content">
+
+            <div class="wrap-content container" id="container">
+
+                <section id="page-title">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h1 class="mainTitle">{% block title %}  {% endblock %}</h1>
+                        </div>
+                        <ol class="breadcrumb" style="margin: 0px 0 0 !important;">
+                            <li>
+                                <span>{% block breadcrumb1 %} {% endblock %}</span>
+                            </li>
+                            <li class="active">
+                                <span>{% block breadcrumb2 %} {% endblock %}</span>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+
+
+                <div class="container-fluid container-fullw bg-white">
+
+
+                    {% block content %}
+                    {% endblock %}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- start: FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="pull-left">
+                &copy; <span class="current-year"></span><span class="text-bold text-uppercase"> Scooli</span>.
+                <span>All rights reserved</span>
+            </div>
+            <div class="pull-right">
+                <span class="go-top"><i class="ti-angle-up"></i></span>
+            </div>
+        </div>
+    </footer>
+    <!-- end: FOOTER -->
+
+
+    <!-- end: SETTINGS -->
+</div>
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,29 @@
+{{ form_start(form, {'method': 'post', 'attr':  {'id' : 'formAffectElearningSession'}}) }}
+
+{{ form_widget(form.idSession, {'attr': {'class': 'idSession'}}) }}
+
+<div class="form-group">
+    <label class="control-label">
+        Session Elearning <span class="symbol required"></span>
+    </label>
+    {{ form_widget(form.elearningSession,{'attr': {'class': '  js-example-basic-single js-states form-control session', 'required': true}}) }}
+</div>
+
+<br/>
+
+<fieldset>
+    <legend>
+        Utilisateurs
+    </legend>
+    <div class="form-group">
+        {{ form_widget(form.user,{'attr': { 'class': 'users', 'multiple' : 'multiple' }}) }}
+    </div>
+</fieldset>
+
+<div class="form-actions">
+    <button type="submit" class="btn btn-primary pull-right">
+        Enregistrer <i class="fa fa-arrow-circle-right"></i>
+    </button>
+</div>
+
+{{ form_end(form) }}

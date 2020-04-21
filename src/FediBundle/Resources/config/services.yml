@@ -1,0 +1,4 @@
+services:
+#    fedi.example:
+#        class: FediBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

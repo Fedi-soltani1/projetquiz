@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Questions {% endblock %}
+{% block breadcrumb1 %} Questions {% endblock %}
+{% block breadcrumb2 %} Modifier {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            {{ include('@Fedi/Question/_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
+{%  block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/questions/questions-answers.js') }}"></script>
+{% endblock %}

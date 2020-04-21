@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block title %} Quiz  Formation Présentielle {% endblock %}
+{% block breadcrumb1 %} Quiz Formation Présentielle {% endblock %}
+{% block breadcrumb2 %} Quiz {% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/candidat-quiz/candidat-quiz-elearning-session.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <!--Commencez la quiz diapo 1-->
+            <div class="diapo1">
+                <div class="container container-diapo1">
+                    <div class="row">
+                        <div class="col-md-12 center">
+                            <div class="mar-top-min-width"><br/><br/><br/><br/><br/><br/>
+                                <h2 class="h2-infoSession" style="color: #E10031;">Sorry ! No Questions here :(</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--end diapo 1-->
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap-wizard/1.2/jquery.bootstrap.wizard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap-wizard/1.2/jquery.bootstrap.wizard.min.js"></script>
+    <script src="{{ asset('assets/candidat-quiz/candidat-quiz-presentiel-session.js') }}"></script>
+{% endblock %}

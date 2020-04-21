@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %} Affecter Session Elearning {% endblock %}
+{% block breadcrumb1 %}  Affecter Session Elearning {% endblock %}
+{% block breadcrumb2 %} Affecter {% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <fieldset>
+                <legend>
+                    Affecter Session Elearning
+                </legend>
+                {{ include('@Fedi/EleveFormation/_form.html.twig') }}
+            </fieldset>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/dualbox/jquery.bootstrap-duallistbox.js') }}"></script>
+
+    <script> var users = $('.users').bootstrapDualListbox();
+    </script>
+{% endblock %}

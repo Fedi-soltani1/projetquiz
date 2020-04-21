@@ -1,0 +1,13 @@
+{{ form_start(form, {'method': 'post', 'attr' : {'id' : 'formLevel'}}) }}
+<div class="form-group">
+    <label class="control-label">
+        Nom <span class="symbol required"></span>
+    </label>
+    {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'required' : 'true' }}) }}
+</div>
+<div class="form-actions">
+    <button type="submit" class="btn btn-primary pull-right">
+        Ajouter <i class="fa fa-arrow-circle-right"></i>
+    </button>
+</div>
+{{ form_end(form) }}
