@@ -1,7 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa029e0c-bf28-40f5-8bab-5e27dc6c6653" name="Default Changelist" comment="" />
+    <list default="true" id="fa029e0c-bf28-40f5-8bab-5e27dc6c6653" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Fedi_Soltani.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FediBundle/Resources/views/ElevelElearningSesion/detail.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FediBundle/Tests/Controller/ApiControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/EspritApiBundle/Controller/DefaultControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_15_04_2020_21_17_c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_23_05_2020_01_57_c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_15_04_2020_21_17_s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_23_05_2020_01_57_s.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/projetquiz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projetquiz.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Controller/ElearningSessionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Controller/ElearningSessionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Controller/EleveElearningSessionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Controller/EleveElearningSessionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Controller/EleveFormationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Controller/EleveFormationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Controller/FormationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Controller/FormationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Controller/LevelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Controller/LevelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Controller/MediasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Controller/MediasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Controller/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Controller/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Entity/Answer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Entity/Answer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Entity/ElearningSession.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Entity/ElearningSession.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Entity/ElearningSessionMedias.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Entity/ElearningSessionMedias.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Entity/Formation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Entity/Formation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Entity/Level.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Entity/Level.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Entity/Medias.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Entity/Medias.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Entity/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Entity/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Entity/UserElearningSession.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Entity/UserElearningSession.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Form/ElearningSessionMediasType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Form/ElearningSessionMediasType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Form/QuestionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Form/QuestionType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Form/UserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Repository/ElearningSessionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Repository/ElearningSessionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Repository/FormationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Repository/FormationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Resources/views/ElearningSession/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Resources/views/ElearningSession/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Resources/views/ElearningSession/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Resources/views/ElearningSession/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Resources/views/EleveFormation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Resources/views/EleveFormation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Resources/views/ElevelElearningSesion/list-elearning-session.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Resources/views/ElevelElearningSesion/list-elearning-session.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Resources/views/Medias/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Resources/views/Medias/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Resources/views/Medias/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Resources/views/Medias/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Resources/views/Question/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Resources/views/Question/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FediBundle/Resources/views/Question/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FediBundle/Resources/views/Question/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/sessions/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/Elevel-search-session/candidat-search-elearning-session.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/Elevel-search-session/candidat-search-elearning-session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/affect-session/affect-elearning-session.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/affect-session/affect-elearning-session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/candidat-quiz/candidat-quiz-presentiel-session.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/candidat-quiz/candidat-quiz-presentiel-session.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/candidat-quiz/detail-elearning-session.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/css/candidat-quiz/detail-elearning-session.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/pdf-viewer/pdfjs-dist/build/pdf.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/js/pdf-viewer/pdfjs-dist/build/pdf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/plugin/pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/js/plugin/pagination.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/session/elearning-session.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/session/elearning-session.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,10 +86,19 @@
     <expand />
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="projetquiz" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 5.6">
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP7.1.26">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
@@ -77,14 +145,18 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1aAvKtViaIPtDg60UFVa7atSeEq" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../total-task-demo-1-part-pre-finale" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -93,29 +165,28 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\projetquiz\src\FediBundle\Resources\views\Api\ElearningSession" />
       <recent name="C:\wamp64\www\projetquiz\web\assets\js" />
       <recent name="C:\wamp64\www\projetquiz\web\assets\css" />
       <recent name="C:\wamp64\www\projetquiz\src\FediBundle\Resources\views\Default" />
       <recent name="C:\wamp64\www\projetquiz\app\Resources" />
-      <recent name="C:\wamp64\www\projetquiz\public" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\projetquiz\src\EspritApiBundle\Resources\views\Task" />
       <recent name="C:\wamp64\www\projetquiz\web\assets" />
       <recent name="C:\wamp64\www\projetquiz\web\assets\js" />
       <recent name="C:\wamp64\www\projetquiz\src\FediBundle\Form" />
       <recent name="C:\wamp64\www\projetquiz\app\Resources\views\default" />
-      <recent name="C:\wamp64\www\projetquiz\src\FediBundle" />
     </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="s doctrine:database:create" />
-      <command value="c dump-autoload" />
-      <command value="s generate:bundle" />
       <command value="s doctrine:generate:entity" />
       <command value="generate:contoller" />
       <command value="s doctrine:generate:contoller" />
@@ -130,15 +201,19 @@
       <command value="s doctrine:generate:form EleveElearningSession" />
       <command value="s doctrine:generate:form FediBundle" />
       <command value="s doctrine:generate:form " />
-      <command value="s cache:clear" />
-      <command value="s generate:controller" />
       <command value="s doctrine:generate:form FediBundle:EleveFormation" />
       <command value="composer require friendsofsymfony/user-bundle &quot;~2.0&quot; " />
       <command value="composer require friendsofsymfony/user-bundle &quot;~2.0&quot;" />
       <command value="s doctrine:schema:update --force*" />
+      <command value="c dump-autoload" />
+      <command value="s generate:bundle" />
+      <command value="s doctrine:generate:entity EspritApiBundle:Task" />
+      <command value="s generate:controller" />
+      <command value="cle" />
       <command value="s doctrine:schema:update --force" />
-      <command value="s server:run" />
       <command value="s debug:router" />
+      <command value="s server:run" />
+      <command value="s cache:clear" />
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -168,66 +243,154 @@
       <workItem from="1586971947300" duration="1869000" />
       <workItem from="1586973850004" duration="46196000" />
       <workItem from="1587210288660" duration="22908000" />
-      <workItem from="1587305665201" duration="72099000" />
+      <workItem from="1587305665201" duration="72732000" />
+      <workItem from="1587663875794" duration="17776000" />
+      <workItem from="1587816893063" duration="1828000" />
+      <workItem from="1587818761988" duration="3064000" />
+      <workItem from="1587907050370" duration="601000" />
+      <workItem from="1588035599414" duration="14927000" />
+      <workItem from="1588118810131" duration="23139000" />
+      <workItem from="1588200012955" duration="3761000" />
+      <workItem from="1588335267723" duration="3869000" />
+      <workItem from="1588375694753" duration="5175000" />
+      <workItem from="1588381327004" duration="2404000" />
+      <workItem from="1588384255152" duration="1659000" />
+      <workItem from="1588385940153" duration="7381000" />
+      <workItem from="1588687879608" duration="595000" />
+      <workItem from="1589212311879" duration="8847000" />
+      <workItem from="1589415831263" duration="1328000" />
+      <workItem from="1589459961771" duration="9084000" />
+      <workItem from="1589644244094" duration="1930000" />
+      <workItem from="1589678051159" duration="2747000" />
+      <workItem from="1589758429843" duration="24187000" />
+      <workItem from="1589864429024" duration="134000" />
+      <workItem from="1589969471055" duration="1225000" />
+      <workItem from="1589975698189" duration="602000" />
+      <workItem from="1589976324569" duration="2605000" />
+      <workItem from="1590019155353" duration="2859000" />
+      <workItem from="1590195367329" duration="8883000" />
+      <workItem from="1590598987533" duration="5388000" />
+      <workItem from="1590709282628" duration="1080000" />
+      <workItem from="1590710451712" duration="9668000" />
+      <workItem from="1590793735413" duration="602000" />
+      <workItem from="1590915278735" duration="674000" />
+      <workItem from="1590915987795" duration="263000" />
+      <workItem from="1590916272990" duration="7701000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="22" key="#Notifications" timestamp="1587478671312">
+    <state x="263" y="18" key="#CLI_Interpreters" timestamp="1590916123560">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1587478671312" />
-    <state x="454" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587321265740">
+    <state x="263" y="18" key="#CLI_Interpreters/0.0.1366.728@0.0.1366.728" timestamp="1590916123560" />
+    <state x="550" y="26" key="#Inspections" timestamp="1589765483796">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="454" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1587321265740" />
-    <state x="255" y="85" key="#com.intellij.ide.util.MemberChooser" timestamp="1587384007105">
+    <state x="550" y="26" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1589765483796" />
+    <state x="0" y="26" key="#Intentions" timestamp="1588380633897">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="255" y="85" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1587384007105" />
+    <state x="0" y="26" key="#Intentions/0.0.1366.728@0.0.1366.728" timestamp="1588380633897" />
+    <state x="275" y="22" key="#Notifications" timestamp="1590917646427">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1590917646427" />
+    <state x="274" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589764094138">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="274" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1589764094138" />
+    <state x="454" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588202168505">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="454" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1588202168505" />
+    <state x="255" y="85" key="#com.intellij.ide.util.MemberChooser" timestamp="1590916453645">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="255" y="85" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1590916453645" />
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586983824388">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1586983824388" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1587396263581">
+    <state x="451" y="194" key="#com.intellij.tools.ToolEditorDialog" timestamp="1590916176294">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587396263581" />
+    <state x="451" y="194" key="#com.intellij.tools.ToolEditorDialog/0.0.1366.728@0.0.1366.728" timestamp="1590916176294" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590764163014">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1590764163014" />
     <state x="468" y="194" key="#com.jetbrains.php.framework.ui.FailedToParseDialog" timestamp="1586975195560">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="468" y="194" key="#com.jetbrains.php.framework.ui.FailedToParseDialog/0.0.1366.728@0.0.1366.728" timestamp="1586975195560" />
-    <state x="407" y="242" key="ComposerCompositePathDialog" timestamp="1586981825266">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1590926619149">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="407" y="242" key="ComposerCompositePathDialog/0.0.1366.728@0.0.1366.728" timestamp="1586981825266" />
-    <state x="462" y="105" key="FileChooserDialogImpl" timestamp="1587478622206">
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590926619149" />
+    <state x="407" y="242" key="ComposerCompositePathDialog" timestamp="1590195637736">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="462" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587478622206" />
-    <state width="1323" height="249" key="GridCell.Tab.0.bottom" timestamp="1587416071035">
+    <state x="407" y="242" key="ComposerCompositePathDialog/0.0.1366.728@0.0.1366.728" timestamp="1590195637736" />
+    <state x="92" y="100" width="499" height="544" key="DiffContextDialog" timestamp="1590917785706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="249" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587416071035" />
-    <state width="1323" height="249" key="GridCell.Tab.0.center" timestamp="1587416071035">
+    <state x="92" y="100" width="499" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1590917785706" />
+    <state x="462" y="105" key="FileChooserDialogImpl" timestamp="1590917269489">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="249" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587416071035" />
-    <state width="1323" height="249" key="GridCell.Tab.0.left" timestamp="1587416071035">
+    <state x="462" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590917269489" />
+    <state x="538" y="252" key="FrameworkEditDialogDimensionKey" timestamp="1589863825603">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="249" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587416071035" />
-    <state width="1323" height="249" key="GridCell.Tab.0.right" timestamp="1587416071035">
+    <state x="538" y="252" key="FrameworkEditDialogDimensionKey/0.0.1366.728@0.0.1366.728" timestamp="1589863825603" />
+    <state width="1323" height="227" key="GridCell.Tab.0.bottom" timestamp="1590921706647">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="249" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587416071035" />
-    <state x="0" y="99" key="IDE.errors.dialog" timestamp="1586957291681">
+    <state width="1323" height="227" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590921706647" />
+    <state width="1323" height="227" key="GridCell.Tab.0.center" timestamp="1590921706647">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="99" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1586957291681" />
+    <state width="1323" height="227" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590921706647" />
+    <state width="1323" height="227" key="GridCell.Tab.0.left" timestamp="1590921706647">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="227" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590921706647" />
+    <state width="1323" height="227" key="GridCell.Tab.0.right" timestamp="1590921706647">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="227" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590921706647" />
+    <state x="0" y="99" key="IDE.errors.dialog" timestamp="1590199060278">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="99" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1590199060278" />
     <state x="456" y="178" key="NewPhpClassDialog" timestamp="1586438211730">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -236,25 +399,37 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1586438155686" />
-    <state x="184" y="6" key="SettingsEditor" timestamp="1587478644860">
+    <state x="184" y="6" key="SettingsEditor" timestamp="1590918049717">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587478644860" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1587422542905">
+    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590918049717" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1590201769416">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1587422542905" />
-    <state x="450" y="266" key="SymfonyPathDialog" timestamp="1586981841427">
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1590201769416" />
+    <state x="450" y="266" key="SymfonyPathDialog" timestamp="1590195676921">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="450" y="266" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1586981841427" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1587305665465">
+    <state x="450" y="266" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1590195676921" />
+    <state x="75" y="68" key="VCS.ChangeListViewerDialog" timestamp="1588170948571">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587305665465" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1587415371233">
+    <state x="75" y="68" key="VCS.ChangeListViewerDialog/0.0.1366.728@0.0.1366.728" timestamp="1588170948571" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1590916323837">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1587415371233" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1590916323837" />
+    <state x="82" y="0" width="517" height="688" key="refactoring.ChangeSignatureDialog" timestamp="1590605068354">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="82" y="0" width="517" height="688" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1590605068354" />
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1590919802864">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1590919802864" />
+    <state x="687" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1588201453931">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="687" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1588201453931" />
   </component>
 </project>

@@ -76,7 +76,7 @@ $(document).ready(function () {
             $('#elearning_session_elearningSessionMedias_' + i).addClass('col-md-10 row ');
             $('#elearning_session_elearningSessionMedias_' + i + ' div:nth-child(1)').addClass(' col-md-2');
             $('#elearning_session_elearningSessionMedias_' + i + ' div:nth-child(2)').addClass('col-md-7');
-            $('#elearning_session_elearningSessionMedias_' + i + '_medias').removeClass('').addClass('js-example-basic-single js-states form-control selectpicker');
+            $('#elearning_session_elearningSessionMedias_' + i + "_medias").removeClass('').addClass('js-example-basic-single js-states form-control selectpicker');
             $('#elearning_session_elearningSessionMedias_' + i + 'ordre').addClass('form-control input-sm inputOrder');
             $('#elearning_session_elearningSessionMedias_' + i + 'ordre').val(i);
             $('#elearning_session_elearningSessionMedias_' + i + '_name');
@@ -87,26 +87,26 @@ $(document).ready(function () {
         }
     }
 
-    //select formation selon le category selected
+    //select formation selon le level selected
 
-    var valSelecteCategorty = $('#elearning_session_category').val();
+    var valSelecteLevel = $('#elearning_session_level').val();
 
-    if (valSelecteCategorty == '') {
+    if (valSelecteLevel === '') {
         $('#elearning_session_formation').empty();
 
     }
 
-    $('#elearning_session_category').change(function () {
+    $('#elearning_session_level').change(function () {
 
-        var valCategory = $(this).val();
-        var path = Routing.generate('formationEle_by_categorie', { idCat: valCategory });
+        var valLevel = $(this).val();
+        var path = Routing.generate('formationEle_by_level', { idLev: valLevel });
 
         $.ajax({
             type: 'POST',
             url: path,
             dataType: 'json',
             cache: false,
-            data: {valCategory: valCategory},
+            data: {valLevel: valLevel},
             success: function (data) {
                 $('#elearning_session_formation').empty();
 

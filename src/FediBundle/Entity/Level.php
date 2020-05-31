@@ -27,7 +27,7 @@ class Level
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="Level")
+     * @ORM\ManyToOne(targetEntity="FediBundle\Entity\User", inversedBy="levels")
      * @ORM\JoinColumn(nullable=False)
      */
     private $user;
@@ -35,7 +35,7 @@ class Level
 
 
     /**
-     * @ORM\OneToMany(targetEntity="Formation", mappedBy="Level")
+     * @ORM\OneToMany(targetEntity="FediBundle\Entity\Formation", mappedBy="level")
      */
     private $formations;
 
@@ -44,7 +44,7 @@ class Level
     public function __construct()
     {
         $this->formations = new ArrayCollection();
-
+        $this->user=new ArrayCollection();
     }
 
 

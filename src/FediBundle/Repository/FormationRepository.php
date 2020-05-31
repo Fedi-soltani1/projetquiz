@@ -22,13 +22,21 @@ class FormationRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('f')
             ->Where('f.level = :level')
-            ->andWhere()
             ->setParameter('level', $idle)
             ->getQuery()
             ->getArrayResult();
     }
 
+    public function getFormation($Formation_id)
+    {
+        return $this->createQueryBuilder('f')
+            ->Where('f.Fomation = :Formation_id')
+            ->setParameter('Formation_id',$Formation_id)
+            ->groupBy('f.level')
+            ->getQuery()
+            ->getResult();
 
+    }
 
 
 }

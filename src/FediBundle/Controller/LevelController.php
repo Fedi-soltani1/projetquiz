@@ -3,11 +3,17 @@
 namespace FediBundle\Controller;
 
 use FediBundle\Entity\Level;
+use FediBundle\FediBundle;
 use FediBundle\Form\LevelType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class LevelController extends Controller
 {
@@ -53,5 +59,26 @@ class LevelController extends Controller
             'level' => $level,
             'form' => $form->createView(),
         ]);
+    }
+    public function getalllevelAction()
+    {
+
+
+        $Level= $this->getDoctrine()->getManager()
+            ->getRepository('FediBundle:Level')
+            ->findAll();
+
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceLimit(2);
+        // Add Circular reference handler
+        $normalizer->setCircularReferenceHandler(function ($formation) {
+            return $formation->getId();
+        });
+        $normalizers = array($normalizer);
+        $serializer = new Serializer($normalizers, $encoders);
+        $formatted = $serializer->normalize($Level);
+
+        return new JsonResponse($formatted);
     }
 }

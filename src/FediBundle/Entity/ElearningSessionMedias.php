@@ -7,7 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * elearningSessionMedias
+ * @ORM\Table(name="elearningSessionMedias")
+ * @ORM\Entity(repositoryClass="FediBundle\Repository\ElearningSessionMediasRepository")
  */
 class ElearningSessionMedias
 {
@@ -24,12 +26,12 @@ class ElearningSessionMedias
     private $ordre;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Medias", inversedBy="elearningSessionMedias")
+     * @ORM\ManyToOne(targetEntity="FediBundle\Entity\Medias", inversedBy="elearningSessionMedias")
      */
     private $medias;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ElearningSession", inversedBy="elearningSessionMedias")
+     * @ORM\ManyToOne(targetEntity="FediBundle\Entity\ElearningSession", inversedBy="elearningSessionMedias")
      */
     private $elearningsession;
 

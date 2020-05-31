@@ -7,7 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ *  Formation
+ * @ORM\Table(name="formation")
+ * @ORM\Entity(repositoryClass="FediBundle\Repository\FormationRepository")
  */
 class Formation
 {
@@ -47,24 +49,24 @@ class Formation
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="formations")
+     * @ORM\ManyToOne(targetEntity="FediBundle\Entity\User", inversedBy="formations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
 
-     * @ORM\ManyToMany(targetEntity="Question", mappedBy="formations")
+     * @ORM\ManyToMany(targetEntity="FediBundle\Entity\Question", mappedBy="formations")
      */
     private $questions;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Level", inversedBy="formations")
+     * @ORM\ManyToOne(targetEntity="FediBundle\Entity\Level", inversedBy="formations")
      * @ORM\JoinColumn(nullable=false)
      */
     private  $level;
     /**
-     * @ORM\OneToMany(targetEntity="ElearningSession", mappedBy="formation")
+     * @ORM\OneToMany(targetEntity="FediBundle\Entity\ElearningSession", mappedBy="formation")
      */
     private $elearningSessions;
     public  function __construct()

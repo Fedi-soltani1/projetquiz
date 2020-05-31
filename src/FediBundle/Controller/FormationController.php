@@ -4,13 +4,19 @@ namespace FediBundle\Controller;
 
 use FediBundle\Entity\ElearningSession;
 use FediBundle\Entity\Formation;
+use FediBundle\Entity\Level;
 use FediBundle\Form\FormationType;
 use FediBundle\Repository\FormationRepository;
 use http\Env\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+use  FediBundle\Entity\User;
 
 class FormationController extends AbstractController
 {
@@ -97,5 +103,25 @@ class FormationController extends AbstractController
             $em->flush();
         }
         return $this->redirectToRoute('fedi_Formationpage');
+    }
+
+    public function getallFormationAction()
+    {
+        $fomation= $this->getDoctrine()->getManager()
+            ->getRepository('FediBundle:Formation')
+            ->findAll();
+
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceLimit(2);
+         // Add Circular reference handler
+        $normalizer->setCircularReferenceHandler(function ($formation) {
+            return $formation->getId();
+        });
+        $normalizers = array($normalizer);
+        $serializer = new Serializer($normalizers, $encoders);
+        $formatted = $serializer->normalize($fomation);
+
+        return new JsonResponse ($formatted);
     }
 }

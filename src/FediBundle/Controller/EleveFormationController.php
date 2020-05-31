@@ -21,16 +21,19 @@ class EleveFormationController extends Controller
 
         ;
         return $this->render('@Fedi/EleveFormation/index.html.twig', ['sessions' => $sessions]);
+
     }
+    /**
+     *
+     *
+     */
+
 
     public function affecteEleveElearningSessionAction(Request $request,ElearningSession $elearningSession = null )
     {
         $em = $this->getDoctrine()->getManager();
-
-        $idSession = (!$elearningSession) ? 0 : $elearningSession->getId();
-
         $userElearningSession = new UserElearningSession();
-        $options = array('user' => $this->getUser()->getId(), 'idSession' => $idSession);
+        $idSession = (!$elearningSession) ? 0 : $elearningSession->getId();
         $form = $this->createForm(EleveElearningSessionType::class, $userElearningSession, [
             'idSession' => $idSession]);
         $form->handleRequest($request);
@@ -44,18 +47,19 @@ class EleveFormationController extends Controller
 
             foreach ($users as $user) {
 
-                $userElearningSession = new UserElearningSession();
-                $userElearningSession->setUser($user);
-                $userElearningSession->setElearningSession($session);
-                $user->addElearningSession($session);
-                $session->addUserElearningSession($userElearningSession);
-                $em->persist($userElearningSession);
-                $em->flush();
+
+                    $userElearningSession = new UserElearningSession();
+                    $userElearningSession->setUser($user);
+                    $userElearningSession->setElearningSession($session);
+                    $user->addElearningSession($session);
+                    $session->addUserElearningSession($userElearningSession);
+                    $em->persist($userElearningSession);
+                    $em->flush();
 
             }
 
             $this->addFlash('success', 'Affectation effectuée avec succées');
-            return $this->redirect($this->generateUrl('listeEleve_formation'));
+            return $this->redirect($this->redirectToRoute('listeEleve_formation'));
         }
 
 

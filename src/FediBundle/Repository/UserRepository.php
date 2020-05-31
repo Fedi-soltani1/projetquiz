@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository;
+namespace FediBundle\Repository;
 
-use App\Entity\User;
+use FediBundle\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

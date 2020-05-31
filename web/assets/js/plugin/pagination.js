@@ -1,13 +1,4 @@
-/*
- * pagination.js 2.1.4
- * A jQuery plugin to provide simple yet fully customisable pagination.
- * https://github.com/superRaytin/paginationjs
- *
- * Homepage: http://pagination.js.org
- *
- * Copyright 2014-2100, superRaytin
- * Released under the MIT license.
- */
+
 
 (function(global, $) {
 
@@ -218,7 +209,7 @@
                     if (showPageNumbers) {
                         if (rangeStart <= 3) {
                             for (i = 1; i < rangeStart; i++) {
-                                if (i == currentPage) {
+                                if (i === currentPage) {
                                     html += '<li class="' + classPrefix + '-page J-paginationjs-page ' + activeClassName + '" data-num="' + i + '"><a>' + i + '<\/a><\/li>';
                                 } else {
                                     html += '<li class="' + classPrefix + '-page J-paginationjs-page" data-num="' + i + '"><a href="' + pageLink + '">' + i + '<\/a><\/li>';
@@ -232,7 +223,7 @@
                         }
 
                         for (i = rangeStart; i <= rangeEnd; i++) {
-                            if (i == currentPage) {
+                            if (i === currentPage) {
                                 html += '<li class="' + classPrefix + '-page J-paginationjs-page ' + activeClassName + '" data-num="' + i + '"><a>' + i + '<\/a><\/li>';
                             } else {
                                 html += '<li class="' + classPrefix + '-page J-paginationjs-page" data-num="' + i + '"><a href="' + pageLink + '">' + i + '<\/a><\/li>';
@@ -422,12 +413,12 @@
                     self.callHook('afterPaging', pageNumber);
 
                     // pageNumber now is the first page
-                    if (pageNumber == 1) {
+                    if (pageNumber === 1) {
                         self.callHook('afterIsFirstPage');
                     }
 
                     // pageNumber now is the last page
-                    if (pageNumber == self.getTotalPage()) {
+                    if (pageNumber === self.getTotalPage()) {
                         self.callHook('afterIsLastPage');
                     }
                 }
@@ -1071,7 +1062,7 @@
 
     // Object type detection
     function getObjectType(object, tmp) {
-        return ( (tmp = typeof(object)) == "object" ? object == null && "null" || Object.prototype.toString.call(object).slice(8, -1) : tmp ).toLowerCase();
+        return ( (tmp = typeof(object)) === "object" ? object == null && "null" || Object.prototype.toString.call(object).slice(8, -1) : tmp ).toLowerCase();
     }
 
     $.each(['Object', 'Array', 'String'], function(index, name) {

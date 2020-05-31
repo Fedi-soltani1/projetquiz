@@ -40,10 +40,11 @@ class Answer
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Question", inversedBy="answers")
+     * @ORM\ManyToOne(targetEntity="FediBundle\Entity\Question", inversedBy="answers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $question;
+
     public function __construct(){
         $this->setEnabled(1);
         $this->setCreatedAt(new \DateTime());

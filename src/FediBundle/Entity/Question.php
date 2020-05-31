@@ -2,13 +2,14 @@
 
 namespace FediBundle\Entity;
 
+use FediBundle\Entity\Answer;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="FediBundle\Repository\QuestionRepository")
  */
 class Question
 {
@@ -45,28 +46,29 @@ class Question
     private $createdAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="questions")
+     * @ORM\ManyToOne(targetEntity="FediBundle\Entity\User", inversedBy="questions" , cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Medias", inversedBy="questions")
+     * @ORM\ManyToOne(targetEntity="FediBundle\Entity\Medias", inversedBy="questions", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $media;
 
     /**
-     * @ORM\OneToMany(targetEntity="Answer", mappedBy="question", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="FediBundle\Entity\Answer", mappedBy="question", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $answers;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Formation", inversedBy="questions")
+     * @ORM\ManyToMany(targetEntity="FediBundle\Entity\Formation", inversedBy="questions", cascade={"persist", "remove"})
      */
     private $formations;
+
 
 
 
@@ -192,37 +194,60 @@ class Question
     }
 
     /**
-     * @return ArrayCollection
+     *@return  Collection|Answer[]
      */
     public function getAnswers()
     {
         return $this->answers;
     }
 
-    /**
-     * @param ArrayCollection $answers
-     */
-    public function setAnswers($answers)
+    public function addAnswers(Answer $answer)
     {
-        $this->answers = $answers;
+        if (!$this->answers->contains($answer)) {
+            $this->answers[] = $answer;
+            $answer->setQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnswer(Answer $answer)
+    {
+        if ($this->answers->contains($answer)) {
+            $this->answers->removeElement($answer);
+            // set the owning side to null (unless already changed)
+            if ($answer->getQuestion() === $this) {
+                $answer->setQuestion(null);
+            }
+        }
+
+        return $this;
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection|Formation[]
      */
     public function getFormations()
     {
         return $this->formations;
     }
 
-    /**
-     * @param ArrayCollection $formations
-     */
-    public function setFormations($formations)
+    public function addFormation(Formation $formation)
     {
-        $this->formations = $formations;
-    }
+        if (!$this->formations->contains($formation)) {
+            $this->formations[] = $formation;
+        }
 
+        return $this;
+    }
+    public function removeFormation(Formation $formation)
+    {
+        if ($this->formations->contains($formation)) {
+            $this->formations->removeElement($formation);
+        }
+
+        return $this;
+    }
 
 
 

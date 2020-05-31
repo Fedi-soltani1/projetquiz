@@ -8,8 +8,13 @@ use FediBundle\Form\QuestionType;
 use FediBundle\Repository\QuestionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 
 class QuestionController extends AbstractController
@@ -28,6 +33,7 @@ class QuestionController extends AbstractController
     public function newQuestionAction(Request $request )
     {    $em = $this->getDoctrine()->getManager();
         $question = new Question();
+
         $form = $this->createForm(QuestionType::class, $question
             );
         $form->handleRequest($request);
@@ -71,7 +77,7 @@ class QuestionController extends AbstractController
 
                 }
             }
-
+            $em->flush();
             $this->addFlash('success', 'Modification effectuée avec succées');
             return $this->redirectToRoute('fedi_Questionpage');
         }
@@ -106,5 +112,25 @@ class QuestionController extends AbstractController
         $em->flush();
 
         return $this->redirectToRoute('fedi_Questionpage');
+    }
+    public function getallquestionAction()
+    {
+
+        $Question= $this->getDoctrine()->getManager()
+            ->getRepository('FediBundle:Question')
+            ->findAll();
+
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceLimit(2);
+        // Add Circular reference handler
+        $normalizer->setCircularReferenceHandler(function ($formation) {
+            return $formation->getId();
+        });
+        $normalizers = array($normalizer);
+        $serializer = new Serializer($normalizers, $encoders);
+        $formatted = $serializer->normalize($Question);
+
+        return new JsonResponse($formatted);
     }
 }

@@ -50,5 +50,27 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="pagination" level="application" />
+    <orderEntry type="library" name="all" level="application" />
+    <orderEntry type="library" name="TimeCircles" level="application" />
+    <orderEntry type="library" name="animate" level="application" />
+    <orderEntry type="library" name="jquery.bootstrap.wizard" level="application" />
+    <orderEntry type="library" name="jquery.countdown360" level="application" />
+    <orderEntry type="library" name="pdf" level="application" />
+    <orderEntry type="library" name="jquery-3.4.1.slim" level="application" />
+    <orderEntry type="library" name="popper" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery-3.5.1" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="fileinput" level="application" />
+    <orderEntry type="library" name="jquery-3.3.1" level="application" />
+    <orderEntry type="library" name="piexif" level="application" />
+    <orderEntry type="library" name="sortable" level="application" />
+    <orderEntry type="library" name="purify" level="application" />
+    <orderEntry type="library" name="fr" level="application" />
+    <orderEntry type="library" name="select2" level="application" />
+    <orderEntry type="library" name="additional-methods" level="application" />
+    <orderEntry type="library" name="jquery.validate" level="application" />
+    <orderEntry type="library" name="jquery-3.5.0" level="application" />
   </component>
 </module>

@@ -41,13 +41,13 @@ class ElearningSessionRepository extends ServiceEntityRepository
     }
 
 
-    public function getSessionByFormationAndByLevel($idFormation, $idCandidatCurrent)
+    public function getSessionElearningByFormationAndByLevel($idFormation, $idCandidatCurrent)
     {
-        $qb = $this->createQueryBuilder('es')
+        return $this->createQueryBuilder('es')
             ->leftJoin('es.userElearningSessions', 'ue')
             ->leftJoin('ue.user', 'u')
             ->leftJoin('es.formation', 'f')
-            ->leftJoin('f.level', 'c')
+            ->leftJoin('f.Level', 'c')
             ->Where('u.id = :id')
             ->andWhere('f.id = :for')
             ->setParameter('for', $idFormation)
@@ -60,13 +60,13 @@ class ElearningSessionRepository extends ServiceEntityRepository
      * @param $idCandidatCurrent
      * @return array
      */
-    public function getEleveAllElearningSession($idCandidatCurrent)
+    public function getAllElearningSession($idCandidatCurrent)
     {
         return $this->createQueryBuilder('es')
             ->leftJoin('es.userElearningSessions', 'ue')
             ->leftJoin('ue.user', 'u')
             ->leftJoin('es.formation', 'f')
-            ->leftJoin('f.category', 'c')
+            ->leftJoin('f.level', 'c')
             ->Where('u.id = :id')
             ->setParameter('id', $idCandidatCurrent)
             ->getQuery()
@@ -79,7 +79,7 @@ class ElearningSessionRepository extends ServiceEntityRepository
      * @param $idSession
      * @return array
      */
-    public function getCandidatDetailElearningSessionByIdSession($idSession)
+    public function getCandidatdetailsByIdSession($idSession)
     {
 
         return $this->createQueryBuilder('es')
@@ -90,13 +90,14 @@ class ElearningSessionRepository extends ServiceEntityRepository
             ->where('es.id = :id')
             ->setParameter('id', $idSession)
             ->getQuery()
-            ->getArrayResult();
+
+            ->getArrayResult()
+            ;
+
+
+
     }
-    /**
-    * @param $level
-    * @param $idSession
-   * @return \Doctrine\ORM\QueryBuilder
-   */
+
     public function getNotAffectedElearningSession ($level, $idSession)
     {
         if ($idSession != 0) {
@@ -121,18 +122,59 @@ class ElearningSessionRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $idEleve
-     * @return array
+     * @param $id
+     * @return mixed
      */
-    public function getAffectedElearningSession($idEleve)
+    public function getAffectedElearningSession($id)
     {
-        return $this->createQueryBuilder('e')
+        $query= $this->createQueryBuilder('e')
             ->innerJoin('e.userElearningSessions', 'ue')
-            ->where('e.Id = :id')
-            ->setParameter('id', $idEleve)
+            ->where('e.id = :id')
+            ->setParameter('id', $id)
             ->getQuery()
             ->getResult();
+        return $query;
     }
+
+    /**
+     * @param $idCat
+     * @param $idCandidatCurrent
+     * @return array
+     */
+    public function getElearningSessionByLevel($idCat, $idCandidatCurrent)
+    {
+        return $this->createQueryBuilder('es')
+            ->leftJoin('es.userElearningSessions', 'ue')
+            ->leftJoin('ue.user', 'u')
+            ->leftJoin('es.formation', 'f')
+            ->leftJoin('f.level', 'c')
+            ->Where('u.id = :id')
+            ->andWhere('c.id = :cat')
+            ->setParameter('cat', $idCat)
+            ->setParameter('id', $idCandidatCurrent)
+            ->getQuery()
+            ->getArrayResult();
+    }
+    /**
+     * @param $idCandidatCurrent
+     * @return array
+     */
+    public function getCandidatAllElearningSession($idCandidatCurrent)
+    {
+        return $this->createQueryBuilder('es')
+            ->leftJoin('es.userElearningSessions', 'ue')
+            ->leftJoin('ue.user', 'u')
+            ->leftJoin('es.formation', 'f')
+            ->leftJoin('f.level', 'c')
+            ->Where('u.id = :id')
+            ->setParameter('id', $idCandidatCurrent)
+            ->getQuery()
+            ->getArrayResult();
+
+    }
+
+
+
 
 
 

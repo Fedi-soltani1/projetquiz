@@ -86,16 +86,14 @@ class UserElearningSession
         $this->id = $id;
     }
 
-    /**
-     * @return ArrayCollection
-     */
+
     public function getUser()
     {
         return $this->user;
     }
 
 
-    public function setUser($user)
+    public function setUser(User $user)
     {
         $this->user = $user;
         return $this;
@@ -212,6 +210,10 @@ class UserElearningSession
     public function setIsvalid($isvalid)
     {
         $this->isvalid = $isvalid;
+    }
+    public function __toString()
+    {
+        return (string) $this->user;
     }
 
 

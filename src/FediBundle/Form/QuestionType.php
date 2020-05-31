@@ -5,8 +5,6 @@ namespace FediBundle\Form;
 use FediBundle\Entity\Formation;
 use FediBundle\Entity\Medias;
 use FediBundle\Entity\Question;
-use FediBundle\Repository\FormationRepository;
-use FediBundle\Repository\MediasRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -44,19 +42,18 @@ class QuestionType extends AbstractType
                     'multiple' => true,
                     'placeholder' => 'Sélectionnez formations',
                     'class' => Formation::class,
-                    'choice_label' => 'name',
-
-                ]
+                    'choice_label' => 'name',]
             )
 
-            ->add('answers', CollectionType::class, array(
-                'entry_type' => AnswerType::class,
-                'label' => false,
-                'entry_options' => array('label' => false, 'required' => true),
-                'allow_add' => true,
-                'allow_delete' => true,
-                'by_reference' => false,
-                ));
+            ->add ('answers', CollectionType::class,
+                [
+                    'entry_type' => AnswerType::class,
+                    'label' => false,
+                    'entry_options' => array('label' => false),
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'by_reference' => false,
+                ]);
 
 
     }

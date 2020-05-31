@@ -54,7 +54,7 @@ class Medias
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="medias")
+     * @ORM\ManyToOne(targetEntity="FediBundle\Entity\User", inversedBy="medias")
      * @ORM\JoinColumn(nullable=false, referencedColumnName="id",)
      *
      */
@@ -63,9 +63,24 @@ class Medias
 
 
     /**
-     * @ORM\OneToMany(targetEntity="Question", mappedBy="media",)
+     * @ORM\OneToMany(targetEntity="FediBundle\Entity\Question", mappedBy="media",)
      */
     private $questions;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="FediBundle\Entity\ElearningSessionMedias", mappedBy="medias")
+     */
+    private $elearningSessionMedias;
+
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime('now');
+        $this->questions = new ArrayCollection();
+        $this->elearningSessionMedias = new ArrayCollection();
+    }
+
 
     /**
      * @return mixed

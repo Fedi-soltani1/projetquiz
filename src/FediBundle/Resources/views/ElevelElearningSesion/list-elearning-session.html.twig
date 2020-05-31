@@ -14,14 +14,16 @@
                 <div class="col-md-6">
                     <label class="control-label">
                         level
-                    </label>
+                    </label>x
                     <div class="form-group">
-                        <select class="js-example-basic-single js-states form-control inputLevel l ">
-                            <option value="0" selected>Tous level</option>
-                            {% for lev in levels %}
-                                <option value="{{ lev.id }}">{{ lev.name }}</option>
-                            {% endfor %}
-                        </select>
+                        <label>
+                            <select class="js-example-basic-single js-states form-control inputLevel ">
+                                <option value="0" selected>Tous les levels</option>
+                                {% for lev in levels %}
+                                    <option value="{{ lev.id }}">{{ lev.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </label>
                     </div>
                 </div>
                 <div class="col-md-6 searchFormations" >
@@ -29,12 +31,14 @@
                         Formations
                     </label>
                     <div class="form-group ">
-                        <select class="js-example-basic-single js-states form-control  listFormations Select inputFormation" >
-                            <option value="0" selected>Tous Formations</option>
-                            {% for f in allFormations %}
-                                <option value="{{ f.id }}">{{ f.name }}</option>
-                            {% endfor %}
-                        </select>
+                        <label>
+                            <select class="js-example-basic-single js-states form-control  listFormations Select inputFormation" >
+                                <option value="0" selected>Tous Formations</option>
+                                {% for f in allFormations %}
+                                    <option value="{{ f.id }}">{{ f.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -42,7 +46,7 @@
                 <div class="row listSessionsElearning" style="min-height:318px;">
                     {% for f in formationAfecte %}
                         {%  if f.score is not null  %}
-                            <div class="col-md-6"  id="session_{{ f.elearningSession.id }}" disabled="disabled" data-score="{{ f.score }}" style="opacity: 0.5;">
+                            <div class="col-md-6"  id="session_{{ f.elearningSession.id }} data-score="{{ f.score }}" style="opacity: 0.5;">
                                 <div class="jumbotron jumbotron-fluid "  style="padding: 2px 2px 2px 2px; ">
                                     <div class="container">
                                         <h3  style="padding-top: 16px;" class="lead nameSession"  data-id="{{ f.elearningSession.id}}"><i class="iconS fa fa-chevron-circle-right" style="color: red;"></i> {{f.elearningSession.name }}</h3>
@@ -54,7 +58,7 @@
                                 <a href="#" >
                                     <div class="jumbotron jumbotron-fluid "  style="padding: 2px 2px 2px 2px; cursor: pointer;">
                                         <div class="container">
-                                            <h3  style="padding-top: 16px;" class="lead nameSession active"  data-id="{{ f.elearningSession.id}}"><i class="iconS fa fa-chevron-circle-right" style="color: red;"></i> {{f.elearningSession.name }}</h3>
+
                                         </div>
                                     </div>
                                 </a>

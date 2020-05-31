@@ -10,6 +10,7 @@
             <div class="row">
                 <div class="col-md-12 space20">
 
+                        <a class="btn btn-primary pull-left" href="{{ path('fedi_AjouterQuestion') }}">Ajouter Question <i class="fa fa-plus"></i></a>
                 </div>
             </div>
 
@@ -35,7 +36,7 @@
                             {%  endfor %}
                         </td>
                         <td class="hidden-xs center sorting_1">
-                            <a href="#"
+                            <a href="{{ path('fedi_StatusQuestion', {id: question.id}) }}"
                                class="label {% if question.enabled == 1 %}label-success{% else %}label-danger{% endif %}">
                                 {% if question.enabled == 1 %} Enabled {% else %} Disabled {% endif %}
                             </a>

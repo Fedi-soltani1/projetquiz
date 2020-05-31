@@ -34,3 +34,61 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
+
+    #normalizer
+    get_set_method_normalizer:
+      class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+      public: false
+      tags: [serializer.normalizer]
+
+
+  #elarning User
+    FediBundle\Repository\UserRepository:
+      class: 'FediBundle\Repository\UserRepository'
+      autowire: true
+      public: true
+      tags: ['doctrine.repository_service']
+
+
+    #elarning reository
+    FediBundle\Repository\ElearningSessionRepository:
+            class: 'FediBundle\Repository\ElearningSessionRepository'
+            autowire: true
+            public: true
+            tags: ['doctrine.repository_service']
+
+
+    #Media Elearnin repository
+    FediBundle\Repository\ElearningSessionMediasRepository:
+            class: 'FediBundle\Repository\ElearningSessionMediasRepository'
+            autowire: true
+            public: true
+            tags: ['doctrine.repository_service']
+
+    #Formation  repository
+    FediBundle\Repository\FormationRepository:
+      class: 'FediBundle\Repository\FormationRepository'
+      autowire: true
+      public: true
+      tags: ['doctrine.repository_service']
+
+     #User elearning
+
+    FediBundle\Repository\UserElearningSessionRepository:
+          class: 'FediBundle\Repository\UserElearningSessionRepository'
+          autowire: true
+          public: true
+          tags: ['doctrine.repository_service']
+
+  #Question
+
+    FediBundle\Repository\QuestionRepository:
+      class: 'FediBundle\Repository\QuestionRepository'
+      autowire: true
+      public: true
+      tags: ['doctrine.repository_service']
+
+
+
+
+

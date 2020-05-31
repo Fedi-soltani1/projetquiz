@@ -3,29 +3,31 @@ fedi_homepage:
     defaults: { _controller: FediBundle:Default:index }
 
 fedi_Questionpage:
-    path:     /Question
+    path:     /Question/
     defaults: { _controller: FediBundle:Question:index }
 
 fedi_AjouterQuestion:
-    path:     /ajouterques
+    path:    /Question/ajouterques
     defaults: { _controller: FediBundle:Question:newQuestion }
+    methods: [post,get]
 
 fedi_EditerQuestion:
-    path:     Question/{id}/EditerQuestion
+    path:     /Question/{id}/Edit
     defaults: { _controller: FediBundle:Question:edit }
+    methods: [post,get]
 
 
 
 fedi_StatusQuestion:
-    path:     Question/{id}/statusQuestion
+    path:     /Question/{id}/statusQuestion
     defaults: { _controller: FediBundle:Question:statusQuestion }
 
 fedi_DeleteQuestion:
-    path:     DeleteQuestion/{id}
+    path:     /question/{id}/delete
     defaults: { _controller: FediBundle:Question:delete }
 
 fedi_Formationpage:
-    path:     /Formationl
+    path:     /Formationlist
     defaults: { _controller: FediBundle:Formation:index }
 
 
@@ -64,7 +66,6 @@ fedi_DeleteMedia:
     path:     /DeleteMedia/{id}
     defaults: { _controller: FediBundle:Medias:delete }
 
-
 fedi_EditMedia:
     path:     /EditMedia/{id}
     defaults: { _controller: FediBundle:Medias:edit }
@@ -97,29 +98,62 @@ Delate_Ele:
     path:     /delateEla/{id}
     defaults: { _controller: FediBundle:ElearningSession:delete }
 
-Eleve_Ele:
-    path:     /list
-    defaults: { _controller: FediBundle:EleveElearningSession:listSessionsEl }
+formationEle_by_level:
+    path:     /formationElebylevel/{idLev}
+    defaults: { _controller: FediBundle:ElearningSession:getSessionByLevel }
+    options: [expose]
 
-filter_Ele:
-    path:     /filterlist
-    defaults: { _controller: FediBundle:EleveElearningSession:FiltreSessionsElearningByLevel }
-
-listeEleve_formation:
-    path:     /listForm
+liste_eleve_afecte:
+    path:     /liste_eleve_affecté
     defaults: { _controller: FediBundle:EleveFormation:ListElevetElearningSession}
 
 afect_Form:
-    path:     /affeceFom
+    path:     /affecter_eleve
     defaults: { _controller: FediBundle:EleveFormation:affecteEleveElearningSession}
+Eleve_list:
+    path:     /list
+    defaults: { _controller: FediBundle:EleveElearningSession:listSessionsEl }
 
-filter:
-    path:     /filterlist/{idlevel}
+filter_by_Lvel:
+    path:    /list/by-level/{$idle}
     defaults: { _controller: FediBundle:EleveElearningSession:FiltreSessionsElearningByLevel}
+    options: [expose]
+
+
+
+filter_by_Formation:
+    path:    /list/{id}
+    defaults: { _controller: FediBundle:EleveElearningSession:FiltreSessionsElearningByLevel}
+    methods: [post]
+
+detail_bysession:
+    path:    /details/{idSession}
+    defaults: { _controller: FediBundle:EleveElearningSession:DetailFormationBySession}
 
 Quiz:
-    path:     /Quiz/{id}
+    path:     /Quiz/{idSession}
     defaults: { _controller: FediBundle:EleveElearningSession:quiz}
+
+get_ALL_Formation:
+    path:     /getallformation
+    defaults: { _controller: FediBundle:Formation:getallFormation}
+    methods: [post,get]
+
+get_ALL_Level:
+    path:     /getalllevel
+    defaults: { _controller: FediBundle:Level:getalllevel}
+    methods: [post,get]
+
+
+get_ALL_question :
+    path:     /getallQuestion
+    defaults: { _controller: FediBundle:Question:getallquestion}
+    methods: [post,get]
+
+get_ALL_media :
+    path:     /getalllmedia
+    defaults: { _controller: FediBundle:Medias:getallmedia}
+    methods: [post,get]
 
 
 

@@ -1,10 +1,7 @@
 <?php
-
-
-
-
 namespace FediBundle\Controller;
-
+use FediBundle\Repository\FormationRepository;
+use FediBundle\Entity\ElearningSessionMedias;
 use Doctrine\DBAL\Schema\View;
 use FediBundle\Entity\Answer;
 use FediBundle\Entity\ElearningSession;
@@ -12,6 +9,7 @@ use Doctrine\ORM\Query;
 use FediBundle\Entity\Level;
 use FediBundle\Entity\Formation;
 use FediBundle\Entity\UserElearningSession;
+use FediBundle\FediBundle;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +19,6 @@ use \Symfony\Component\HttpFoundation\JsonResponse;
 
 class EleveElearningSessionController extends Controller
 {
-    private $paginator;
 
 
    public function listSessionsElAction(Request $request)
@@ -30,11 +27,11 @@ class EleveElearningSessionController extends Controller
 
         $level= $em->getRepository(Level::class)->findBy(array('user'=>$this->getUser()));
         $formationsAf = $em->getRepository(UserElearningSession::class)->findBy(array('user' => $this->getUser()));
-        $allFormations = $em->getRepository(Formation::class)->findBy(array('user'=>$this->getUser()));
+        $allFormations = $em->getRepository(Formation::class)->findAll($this->getUser());
         $pagination = $this->get('knp_paginator')->paginate(
             $formationsAf, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            10/*limit per page*/
+            5/*limit per page*/
         );
         return $this->render('@Fedi/ElevelElearningSesion/list-elearning-session.html.twig',
             array(
@@ -47,37 +44,38 @@ class EleveElearningSessionController extends Controller
 
 
     public function FiltreSessionsElearningByLevelAction(Request $request )
-    {   $em = $this->getDoctrine()->getManager();
+    {
+        $em = $this->getDoctrine()->getManager();
         $idle = $request->request->get('valIdLevel');
-        $user=$this->getUser();
+       // $user=$this->getUser();
         $idCandidatCurrent = $this->getUser();
-        $formationByLevl= [];
+        $formationByLevel= [];
         $level = null;
         $scoreSessionElearning = [];
 
 
         try {
             if ($idle == "0") {
-                $sessionsElearning = $em->getRepository(ElearningSession::class)->getEleveAllElearningSession($idCandidatCurrent);
+                $sessionsElearning = $em->getRepository(ElearningSession::class)->getCandidatAllElearningSession($idCandidatCurrent);
 
                 if ($sessionsElearning != null) {
                     foreach ($sessionsElearning as $item) {
 
                         $scoreSessionElearning[] = $em->getRepository(UserElearningSession::class)->findOneBy(['elearningSession' => $item['id'], 'user' => $this->getUser()])->getIsvalid();
                     }
-                   $qb = $em->getRepository(Formation::class)->createQueryBuilder('f')->leftJoin('f.level. = :level')
+                   $qb = $em->getRepository(Formation::class)->createQueryBuilder('f')->wehre('f.level = :level')
                         ->setParameter('level', $this->getUser()->getLevel())->getQuery();
-                    $formationByLevl = $qb->getArrayResult(Query::HYDRATE_ARRAY);
+                    $formationByLevel = $qb->getResult(Query::HYDRATE_ARRAY);
 
                 }
 
             } else {
-                $sessionsElearning = $em->getRepository(ElearningSession::class)->findBy(array('level'=>$this->get($idle)));
+                $sessionsElearning = $em->getRepository(ElearningSession::class)->getElearningSessionByLevel($idle, $idCandidatCurrent);
                 if ($sessionsElearning != null) {
                     foreach ($sessionsElearning as $item) {
                         $scoreSessionElearning[] = $em->getRepository(UserElearningSession::class)->findOneBy(['elearningSession' => $item['id'], 'user' => $this->getUser()])->getIsvalid();
                     }
-                    $formationByLevl = $em->getRepository(Formation::class)->getFormationbyLevel($idle );
+                    $formationByLevel = $em->getRepository(Formation::class)->getFormationByLevel($idle);
                     $level = $em->getRepository(Level::class)->find($idle)->getName();
 
                 }
@@ -87,7 +85,7 @@ class EleveElearningSessionController extends Controller
             return $this->json([
                 'success' => true,
                 'sessionsElearning' => $sessionsElearning,
-                'formationBylevl' => $formationByLevl,
+                'formationByLevel' => $formationByLevel,
                 'level' => $level,
                 'scoreSessionElearning' => $scoreSessionElearning
             ]);
@@ -100,7 +98,7 @@ class EleveElearningSessionController extends Controller
             ]);
         }
     }
-    public function FiltreSessionElearningByCategoryAndFormationAction(Request $request)
+    public function FiltreSessionElearningByLevelAndFormationAction(Request $request)
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -108,7 +106,7 @@ class EleveElearningSessionController extends Controller
         $idCandidatCurrent = $this->getUser();
         $scoreSessionElearning= null;
         try {
-            $sessionsElearning = $em->getRepository(ElearningSession::class)->getSessionByFormationAndByLevel($idFormation, $idCandidatCurrent);
+            $sessionsElearning = $em->getRepository(ElearningSession::class)->getSessionElearningByFormationAndByLevel($idFormation, $idCandidatCurrent);
             if ($sessionsElearning != null){
                 foreach ($sessionsElearning as $item) {
                     $scoreSessionElearning[] = $em->getRepository(UserElearningSession::class)->findOneBy(['elearningSession' => $item['id'], 'user' => $this->getUser()])->getScore();
@@ -129,7 +127,23 @@ class EleveElearningSessionController extends Controller
         }
     }
 
+    public function DetailFormationBySessionAction($idSession)
+    {
 
+
+            $em = $this->getDoctrine()->getManager();
+
+         $infoSession = $em->getRepository(ElearningSession::class)->getCandidatdetailsByIdSession
+         ($idSession);
+
+          $listMesdiasBySession = $em->getRepository(ElearningSessionMedias::class)->findBy(array('elearningsession' => $idSession), array('ordre' => 'ASC'));
+         $nbrMediaBySessionn = count($listMesdiasBySession);
+            return $this->render('@Fedi/ElevelElearningSesion/detail.html.twig', array(
+            'infoSession' => $infoSession,
+            'nbrMediaBySessionn' => $nbrMediaBySessionn,
+            'listMesdiasBySession' => $listMesdiasBySession
+        ));
+    }
     public function quizAction( $idSession)
     {
 

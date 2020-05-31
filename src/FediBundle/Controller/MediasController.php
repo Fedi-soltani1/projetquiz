@@ -8,9 +8,13 @@ use FediBundle\Entity\Medias;
 use FediBundle\Utils\Media;
 use FediBundle\Form\MediasType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 
 class MediasController extends AbstractController
@@ -110,12 +114,32 @@ $em=$this->getDoctrine()->getManager();
             $em->persist($media);
             $em->flush();
            $this->addFlash('success', 'Modification effectué avec succés');
-return $this->redirectToRoute('fedi_MediaQuiz');
+ return $this->redirectToRoute('fedi_MediaQuiz');
         }
 
         return $this->render('@Fedi/Medias/edit.html.twig', array(
             'form' => $form->createView(),
         ));
 
+    }
+    public function getallmediaAction()
+    {
+
+        $Media= $this->getDoctrine()->getManager()
+            ->getRepository('FediBundle:Medias')
+            ->findAll();
+
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceLimit(2);
+        // Add Circular reference handler
+        $normalizer->setCircularReferenceHandler(function ($formation) {
+            return $formation->getId();
+        });
+        $normalizers = array($normalizer);
+        $serializer = new Serializer($normalizers, $encoders);
+        $formatted = $serializer->normalize($Media);
+
+        return new JsonResponse($formatted);
     }
 }

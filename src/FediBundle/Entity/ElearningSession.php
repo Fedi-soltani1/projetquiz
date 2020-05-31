@@ -8,7 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * @ORM\Entity
+ *  elearningSession
+ * @ORM\Table(name="elearningSession")
+ * @ORM\Entity(repositoryClass="FediBundle\Repository\ElearningSessionRepository")
  */
 class ElearningSession
 {
@@ -27,23 +29,23 @@ class ElearningSession
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Formation", inversedBy="elearningSessions")
+     * @ORM\ManyToOne(targetEntity="FediBundle\Entity\Formation", inversedBy="elearningSessions")
      */
     private $formation;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="elearningSessions")
+     * @ORM\ManyToOne(targetEntity="FediBundle\Entity\User", inversedBy="elearningSessions")
      */
     private $user;
 
 
     /**
-     * @ORM\OneToMany(targetEntity="ElearningSessionMedias", mappedBy="elearningsession", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="FediBundle\Entity\ElearningSessionMedias", mappedBy="elearningsession", cascade={"persist","remove"})
      */
     private $elearningSessionMedias;
 
     /**
-     * @ORM\OneToMany(targetEntity="UserElearningSession", mappedBy="elearningSession")
+     * @ORM\OneToMany(targetEntity="FediBundle\Entity\UserElearningSession", mappedBy="elearningSession")
      */
     private $userElearningSessions;
 
@@ -51,6 +53,14 @@ class ElearningSession
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime('now');
+        $this->elearningSessionMedias = new ArrayCollection();
+        $this->userElearningSessions = new ArrayCollection();
+    }
+
 
     /**
      * @return mixed
@@ -117,31 +127,12 @@ class ElearningSession
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection|ElearningSessionMedias[]
      */
     public function getElearningSessionMedias()
     {
         return $this->elearningSessionMedias;
     }
-
-    /**
-     * @param ArrayCollection $elearningSessionMedias
-     */
-    public function setElearningSessionMedias($elearningSessionMedias)
-    {
-        $this->elearningSessionMedias = $elearningSessionMedias;
-    }
-
-
-
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime('now');
-        $this->elearningSessionMedias = new ArrayCollection();
-        $this->userElearningSessions = new ArrayCollection();
-    }
-
-
 
     public function addElearningSessionMedia(ElearningSessionMedias $elearningSessionMedia)
     {

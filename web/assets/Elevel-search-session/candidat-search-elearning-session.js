@@ -1,29 +1,28 @@
 $(document).ready(function () {
     /*search with category solo*/
-    $('.inputCategory').change(function () {
-        var valIdCategory = $(this).val();
-         var path = Routing.generate('admin_candidat_elearning_session_by_categorie', {idCat: valIdCategory});
+    $('.inputLevel').change(function () {
+        var valIdLevel = $(this).val();
+
         $.ajax({
-            type: 'POST',
-            url: path,
+            type: 'post',
+            url: '/list/'+ valIdLevel,
             dataType: 'json',
             cache: false,
-            data: {valIdCategory: valIdCategory},
             success: function (data) {
                 console.log(data);
                 var listSessions = '';
                 var listFormations = '';
-                var nameCategory = '';
-                if (valIdCategory != 0){
-                     nameCategory = data['category'] ;
+                var nameLevel = '';
+                if (valIdLevel !== 0){
+                     nameLevel = data['level'] ;
                 }else{
-                    nameCategory =  'Tous catégories';
+                    nameLevel =  'Tous level';
                 }
-                /*select category*/
+                /*select level*/
                 if ((typeof data['sessionsElearning'] !== 'undefined' && data['sessionsElearning'].length > 0)) {
                     $('.listSessionsElearning').addClass('demo');
                     $.each(data['sessionsElearning'], function (key, value) {
-                        var link =Routing.generate('admin_candidat_detail_elearning_session_by_formation', {idSession: value.id});
+                        var link =Routing.generate('detail_bysession', {idSession: value.id});
 
                         $('.listSessionsElearning').empty();
                         if (data['scoreSessionElearning'][key] == null){
@@ -59,13 +58,13 @@ $(document).ready(function () {
 
                         $('.listSessionsElearning').append(listSessions);
                 }
-                /*auto remplir champs formation selon le categorie*/
-                if ((typeof data['formationByCat'] !== 'undefined' && data['formationByCat'].length > 0)) {
+                /*auto remplir champs formation selon level*/
+                if ((typeof data['formationByLevel'] !== 'undefined' && data['formationByLevel'].length > 0)) {
 
                     $('.searchFormations').show();
-                    $('.listFormationsSelect').empty();
-                    listFormations = listFormations + '<option value="0" selected>Selectionnez formation par '+nameCategory+'</option>';
-                    $.each(data['formationByCat'], function (key, value) {
+                    $('.listFormations').empty();
+                    listFormations = listFormations + '<option value="0" selected>Selectionnez formation par '+nameLevel+'</option>';
+                    $.each(data['formationByLevel'], function (key, value) {
                         listFormations = listFormations + '<option value="'+value.id+'">'+value.name+'</option>';
                         $('.listFormationsSelect').append(listFormations);
                     });
@@ -84,10 +83,10 @@ $(document).ready(function () {
 
     });
 
-    /*search with formation selon le category*/
+    /*search with formation selon level*/
     $('.inputFormation').change(function () {
         var valIdFormation = $(this).val();
-        var path = Routing.generate('admin_candidat_elearning_session_by_formation', {idFormation: valIdFormation});
+        var path = Routing.generate('filter_by_Formation', {idFormation: valIdFormation});
         $.ajax({
             type: 'POST',
             url: path,
@@ -98,10 +97,10 @@ $(document).ready(function () {
                 console.log(data);
 
                 var listSessions = '';
-                /*select category*/
+                /*select level*/
                 if (data['scoreSessionElearning']  !== null) {
                     $.each(data['sessionsElearning'], function (key, value) {
-                        var link =Routing.generate('admin_candidat_detail_elearning_session_by_formation', {idSession: value.id});
+                        var link =Routing.generate('detail_bysession', {idSession: value.id});
                         $('.listSessionsElearning').empty();
                         if (data['scoreSessionElearning'][key] == null){
                             listSessions = listSessions + "             <div class=\"col-md-6\" data-score="+data['scoreSessionElearning'][key]+" id=\"session_" + value.id + "\">\n" +

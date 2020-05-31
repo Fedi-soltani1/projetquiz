@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+{% block title %}  Formation E-learning {% endblock %}
+{% block breadcrumb1 %}  {{ infoSession[0].name }} {% endblock %}
+{% block breadcrumb2 %} {{ infoSession[0].formation.name }} {% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/candidat-quiz/detail-elearning-session.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="row">
+    <div class="col-md-12">
+    <div class="center">
+        <span class="hidden"><b id="counterMedia">Numéro media </b>- <b
+                    id="nbrMedias">{{ nbrMediaBySessionn }} Médias</b></span>
+    </div>
+    <div id="rootwizard">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <ul class="hidden">
+                    {% for m in listMesdiasBySession %}
+                        <li><a href="#tab{{ m.ordre }}" data-toggle="tab">{{ m.medias.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="bar" class="progress barProgressMedias">
+        <div class="progress progress-striped active progress-sm">
+            <div id="barMedias" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0"
+                 aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+        </div>
+    </div>
+    <div class="tab-content ">
+    {% for m in listMesdiasBySession %}
+    <div class="tab-pane center" id="tab{{ m.ordre }}">
+        <div class="niv1Medias">
+        {% if m.medias.type == 'TYPE_FILE' %}
+            <div class="">
+                <div class="pdf-container{{ loop.index }}" data-href="{{ asset('uploads/medias/files/'~m.medias.file) }}"></div>
+            </div>
+            </div>
+            </div>
+        {% elseif m.medias.type == 'TYPE_VIDEO' %}
+            <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                <iframe class="embed-responsive-item img-responsive condidatVedioMedias"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        frameborder="0"
+                        src="{{ asset('uploads/medias/videos/'~m.medias.file) }}"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            </div>
+            </div>
+        {% elseif m.medias.type == 'TYPE_PHOTO' %}
+            <div class="typeImageMediasc">
+                <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                    <img class="img-responsive embed-responsive-item img-responsive condidatImageMedias"
+                         src="{{ asset('uploads/medias/images/'~m.medias.file) }}"
+                         alt="image" title="{{ m.medias.name }} "
+                         data-toggle="modal" data-target="#modal">
+                </div>
+            </div>
+            </div>
+            </div>
+            <div class="center">
+                <div class="modal fade" id="modal" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <!--Content-->
+                        <div class="modal-content">
+                            <!--Body-->
+                            <div class="modal-body mb-0 p-0">
+                                <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                    <img class="embed-responsive-item"
+                                         src="{{ asset('uploads/medias/images/'~m.medias.file) }}"/>
+                                </div>
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer ">
+                                <h6 class="pull-left">{{ m.medias.name }}</h6>
+                                <button type="button" class="btn btn-danger btn-rounded btn-md ml-4"
+                                        data-dismiss="modal">
+                                    Fermer
+                                </button>
+                            </div>
+                        </div>
+                        <!--/.Content-->
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <ul class="pager wizard">
+        <li class="previous">
+            <button class="btnPrev btn btn-sm pull-left" type="button" href="javascript:;"><i
+                        class="fa fa-angle-double-left"></i> Précedent
+            </button>
+        </li>
+        <li class="next">
+            <button class="btnNext btn btn-sm pull-right" type="button" href="javascript:;">Suivant <i
+                        class="fa fa-angle-double-right"></i></button>
+        </li>
+        <li class="finish" style="display:none ;">
+            <a class="btnFinsh btn btn-sm pull-right" type="button"
+               href="#">Passer
+                a quiz <i class="fa fa-angle-double-right"></i></a>
+        </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap-wizard/1.2/jquery.bootstrap.wizard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap-wizard/1.2/jquery.bootstrap.wizard.min.js"></script>
+    <script src="{{ asset('assets/candidat-quiz/candidat-detail-elearning-session.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+    <script src="{{ asset('assets/js/pdf-viewer/pdfviewer.js') }}"></script>
+
+{% endblock %}

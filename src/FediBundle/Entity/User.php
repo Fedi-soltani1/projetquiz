@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="FediBundle\Repository\UserRepository")
  * @ORM\Table(name="User")
  */
 class User extends BaseUser
@@ -77,15 +77,12 @@ class User extends BaseUser
         $this->medias = new ArrayCollection();
         $this->levels = new ArrayCollection();
         $this->questions = new ArrayCollection();
-        $this->user = new ArrayCollection();
         $this->elearningSessions = new ArrayCollection();
         $this->userElearningSessions = new ArrayCollection();
-
-
-
-
+        $this->formations = new ArrayCollection();
 
     }
+
     /**
      * @return mixed
      */
@@ -152,6 +149,7 @@ class User extends BaseUser
 
         return $this;
     }
+
     public function removeFormation(Formation $formation)
     {
         if ($this->formations->contains($formation)) {
@@ -191,15 +189,21 @@ class User extends BaseUser
     }
 
 
-    /* public function addLevel(Level $level)
-     {
-         if (!$this->levels->contains($level)) {
-             $this->$level[] = $level;
-             $level->setUser($this);
-         }
+    public function addLevel(Level $level)
 
-         return $this;
-     }*/
+    {
+        if (!$this->levels->contains($level)) {
+            $this->levels[] = $level;
+            $level->setUser($this);
+        }
+
+        return $this;
+    }
+
+
+
+
+
     public function removeLevel(Level $level)
     {
         if ($this->levels->contains($level)) {
@@ -305,7 +309,7 @@ class User extends BaseUser
         $roles = $this->roles;
         // guarantee every user at least has ROLE_CANDIDAT
         if (empty($roles)) {
-            $roles[] = 'ROLE_Elevel';
+            $roles[] = 'ROLE_Eleve';
         }
 
         return array_unique($roles);
@@ -476,19 +480,17 @@ class User extends BaseUser
         return $this;
     }
 
-    /**
-     * @return Collection|GroupInterface[]
-     */
-    public function getGroups()
+    
+
+    public function __serialize()
     {
-        return $this->groups;
+        return parent::serialize();  // TODO: Implement __serialize() method.
     }
 
-    /**
-     * @param Collection|GroupInterface[] $groups
-     */
-    public function setGroups($groups)
+    public function __unserialize(array $data)
     {
-        $this->groups = $groups;
+        parent::unserialize($data); // TODO: Implement __unserialize() method.
     }
+
+
 }

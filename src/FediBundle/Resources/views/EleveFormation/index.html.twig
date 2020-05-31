@@ -26,8 +26,8 @@
                     <tr>
                         <td class="hidden-xs left">{{ session.name }}</td>
                         <td class="hidden-xs center">
-                            {% for user in session %}
-                                <span class="label label-inverse" > {{ user.name }}</span>
+                            {% for user in session.userElearningSessions %}
+                                <span class="label label-inverse" > {{ user }}</span>
                             {% endfor %}
                         </td>
                         <td class="hidden-xs center">

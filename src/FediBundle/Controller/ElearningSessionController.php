@@ -1,6 +1,7 @@
 <?php
 
 namespace FediBundle\Controller;
+use FediBundle\Entity\Formation;
 use FediBundle\Entity\UserElearningSession;
 use Doctrine\Common\Collections\ArrayCollection;
 use FediBundle\Entity\Level;
@@ -10,11 +11,16 @@ use FediBundle\Entity\Medias;
 use FediBundle\FediBundle;
 use FediBundle\Form\ElearningSessionType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FediBundle\Traits\ServiceTrait;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
- class ElearningSessionController extends Controller
+class ElearningSessionController extends Controller
 {
 
     public function newSessionAction(Request $request)
@@ -50,6 +56,7 @@ use FediBundle\Traits\ServiceTrait;
 
          return $this->render('@Fedi/ElearningSession/list.html.twig',array('elearningSession'=>$elearningSession));
      }
+
      public function editAction(Request $request, ElearningSession $elearningSession)
      {
          $em= $this->getDoctrine()->getManager();
@@ -92,6 +99,52 @@ use FediBundle\Traits\ServiceTrait;
              $this->addFlash('success', 'Suppression effectuée avec succées');
          }
          return $this->redirectToRoute('list_Ele');
+
+
      }
+
+
+    public function getSessionByLevel(Request $request)
+    {
+
+        $idLev = $request->request->get('valLevel');
+        try {
+            $em= $this->getDoctrine()->getManager();
+            $formation = $em->getRepository(Formation::class)->getFormationByLevel($idLev);
+            return $this->json([
+                'success' => true,
+                'formation' => $formation,
+            ]);
+
+        } catch (\Exception $exception) {
+            return $this->json([
+                'success' => false,
+                'code' => $exception->getCode(),
+                'message' => $exception->getMessage(),
+            ]);
+        }
+
+    }
+    public function getallElarningsessionAction()
+    {
+
+
+        $Elearningsession= $this->getDoctrine()->getManager()
+            ->getRepository('FediBundle:ElearningSession')
+            ->findAll();
+
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceLimit(2);
+        // Add Circular reference handler
+        $normalizer->setCircularReferenceHandler(function ($formation) {
+            return $formation->getId();
+        });
+        $normalizers = array($normalizer);
+        $serializer = new Serializer($normalizers, $encoders);
+        $formatted = $serializer->normalize($Elearningsession);
+
+        return new JsonResponse($formatted);
+    }
 
 }
